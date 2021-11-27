@@ -8,10 +8,49 @@
 <navbar-component> </navbar-component>
 
 <body style="background-image:none">    
-        <div class="inicio">
-            <div id="lista" style="width: 400px; float: left;">
-                <input type="text" id="busc_carrera" onkeyup="buscarCarrera()" placeholder="Buscar carrera...">
 
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h1>Agregar carrera</h1>
+                            </div>
+                            <div class="modal-body">
+                                Cuerpazo
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-default" data-dismiss="modal">Cancelar </button>
+                            </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inicio">
+            <div id="lista" style="width: 400px; float: left; border: 1px solid black">
+                <input type="text" id="busc_carrera" onkeyup="buscarCarrera()" placeholder="Buscar carrera...">
+                <div class="col text-center">
+                    <button class="agregar_carrera" href="" data-toggle="modal" data-target="#myModal" style="color:black; font-size: 16">
+                        Agregar carrera                    
+                    </button>
+                </div>
 
                 <ul id="carreras_lista"> 
                     @foreach($carreras as $item) 

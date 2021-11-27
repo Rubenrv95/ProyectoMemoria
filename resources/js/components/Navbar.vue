@@ -6,18 +6,11 @@
             </b-navbar-brand>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto" style="margin-left: 30px">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="" style="color:white; font-size: 16">Agregar carrera<span class="sr-only">(current)</span></a>
-                    </li>
+                
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="" style="color:white; font-size: 16">Agregar usuario<span class="sr-only">(current)</span></a>
                     </li>
-
-
-                </ul>       
-                
-                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="/home" style="color:white; font-size: 16">Inicio<span class="sr-only">(current)</span></a>
                     </li>

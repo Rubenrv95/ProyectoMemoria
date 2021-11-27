@@ -70,6 +70,18 @@ header {
         color:white;
 }
 
+.agregar_carrera {
+        background-image: url('/images/add_icon.png');
+        background-repeat: no-repeat; 
+        background-color: transparent;
+        margin: center;    
+        text-align: left;
+        border: none; /* Remove borders */
+        padding: 0px 30px; /* Some padding */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+}
+
 #busc_carrera {
         background-image: url('/images/search_icon.png'); /* Add a search icon to input */
         background-position: 10px 12px; /* Position the search icon */

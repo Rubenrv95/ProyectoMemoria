@@ -37515,46 +37515,22 @@ var staticRenderFns = [
         attrs: { id: "navbarSupportedContent" },
       },
       [
-        _c(
-          "ul",
-          {
-            staticClass: "navbar-nav mr-auto",
-            staticStyle: { "margin-left": "30px" },
-          },
-          [
-            _c("li", { staticClass: "nav-item active" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link",
-                  staticStyle: { color: "white", "font-size": "16" },
-                  attrs: { href: "" },
-                },
-                [
-                  _vm._v("Agregar carrera"),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item active" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link",
-                  staticStyle: { color: "white", "font-size": "16" },
-                  attrs: { href: "" },
-                },
-                [
-                  _vm._v("Agregar usuario"),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")]),
-                ]
-              ),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
         _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+          _c("li", { staticClass: "nav-item active" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                staticStyle: { color: "white", "font-size": "16" },
+                attrs: { href: "" },
+              },
+              [
+                _vm._v("Agregar usuario"),
+                _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
           _c("li", { staticClass: "nav-item active" }, [
             _c(
               "a",
