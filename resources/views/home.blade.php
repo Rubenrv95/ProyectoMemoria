@@ -21,22 +21,43 @@
             </div>
         </div>
 
+
+        <modaluser-component></modaluser-component>
         <div class="container">
             <div class="row">
                 <div class ="col-md-12">
                     <div class="modal fade" id="myModal">
-                        <div class="modal-dialog modal-sm">
+                        <div class="modal-dialog modal-md" >
                             <div class="modal-content">
 
-                            <div class="modal-header">
-                                <h1>Agregar carrera</h1>
-                            </div>
-                            <div class="modal-body">
-                                Cuerpazo
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-default" data-dismiss="modal">Cancelar </button>
-                            </div> 
+                                <div class="modal-header">
+                                    <h1 class="justify-content-center" style="font-size: 65; text-align: center"> Agregar carrera</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group" style="margin: auto;">
+                                        <label style="font-size: 20">Nombre de la carrera</label>
+                                        <input class="form-control form-control-lg" name="email" style="width: 470px; margin-bottom: 20px" />
+                                    </div>
+
+                                    <div class="form-group" style="margin: auto">
+                                        <label style="font-size: 20">Área profesional</label>
+                                        <select class="form-select form-select-lg" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                            <option selected value="1">Administración y Comercio</option>
+                                            <option value="2">Arte y Arquitectura</option>
+                                            <option value="3">Carreras Técnicas</option>
+                                            <option value="4">Ciencias</option>
+                                            <option value="5">Ciencias Sociales</option>
+                                            <option value="6">Educación</option>
+                                            <option value="7">Recursos Naturales</option>
+                                            <option value="8">Salud</option>
+                                            <option value="8">Tecnología</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="button-accept" data-dismiss="modal">Guardar</button>
+                                    <button class="button-cancel" data-dismiss="modal">Cancelar</button>
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -47,7 +68,7 @@
             <div id="lista" style="width: 400px; float: left; border: 1px solid black">
                 <input type="text" id="busc_carrera" onkeyup="buscarCarrera()" placeholder="Buscar carrera...">
                 <div class="col text-center">
-                    <button class="agregar_carrera" href="" data-toggle="modal" data-target="#myModal" style="color:black; font-size: 16">
+                    <button class="agregar_carrera" href="" data-toggle="modal" data-target="#myModal" style="color:black; font-size: 16; margin-bottom: 10px;">
                         Agregar carrera                    
                     </button>
                 </div>
@@ -65,6 +86,8 @@
                     @endforeach
                 </ul> 
             </div>
+
+
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">

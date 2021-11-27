@@ -37522,7 +37522,11 @@ var staticRenderFns = [
               {
                 staticClass: "nav-link",
                 staticStyle: { color: "white", "font-size": "16" },
-                attrs: { href: "" },
+                attrs: {
+                  href: "",
+                  "data-toggle": "modal",
+                  "data-target": "#modal_user",
+                },
               },
               [
                 _vm._v("Agregar usuario"),
@@ -37600,6 +37604,153 @@ var staticRenderFns = [
         ]),
       ]
     )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/crear_usuario.vue?vue&type=template&id=1502778a&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/crear_usuario.vue?vue&type=template&id=1502778a& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "div",
+            { staticClass: "modal fade", attrs: { id: "modal_user" } },
+            [
+              _c("div", { staticClass: "modal-dialog modal-md" }, [
+                _c("div", { staticClass: "modal-content" }, [
+                  _c("div", { staticClass: "modal-header" }, [
+                    _c(
+                      "h1",
+                      {
+                        staticClass: "justify-content-center",
+                        staticStyle: {
+                          "font-size": "65",
+                          "text-align": "center",
+                        },
+                      },
+                      [_vm._v(" Agregar usuario")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "form-group",
+                        staticStyle: { margin: "auto" },
+                      },
+                      [
+                        _c("label", { staticStyle: { "font-size": "20" } }, [
+                          _vm._v("Nombre del usuario"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control form-control-lg",
+                          staticStyle: {
+                            width: "470px",
+                            "margin-bottom": "20px",
+                          },
+                          attrs: { type: "name", name: "email" },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "form-group",
+                        staticStyle: { margin: "auto" },
+                      },
+                      [
+                        _c("label", { staticStyle: { "font-size": "20" } }, [
+                          _vm._v("Correo Electrónico"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control form-control-lg",
+                          staticStyle: {
+                            width: "470px",
+                            "margin-bottom": "20px",
+                          },
+                          attrs: { type: "email", name: "email" },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "form-group",
+                        staticStyle: { margin: "auto" },
+                      },
+                      [
+                        _c("label", { staticStyle: { "font-size": "20" } }, [
+                          _vm._v("Contraseña"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control form-control-lg",
+                          staticStyle: {
+                            width: "470px",
+                            "margin-bottom": "20px",
+                          },
+                          attrs: { type: "password", name: "password" },
+                        }),
+                      ]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button-accept",
+                        attrs: { "data-dismiss": "modal" },
+                      },
+                      [_vm._v("Guardar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button-cancel",
+                        attrs: { "data-dismiss": "modal" },
+                      },
+                      [_vm._v("Cancelar")]
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+        ]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -49830,6 +49981,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('navbar-component', __webpack_require__(/*! ./components/Navbar.vue */ "./resources/js/components/Navbar.vue")["default"]);
+Vue.component('modaluser-component', __webpack_require__(/*! ./components/crear_usuario.vue */ "./resources/js/components/crear_usuario.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -49929,6 +50081,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_template_id_6dde423b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_template_id_6dde423b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/crear_usuario.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/crear_usuario.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crear_usuario_vue_vue_type_template_id_1502778a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./crear_usuario.vue?vue&type=template&id=1502778a& */ "./resources/js/components/crear_usuario.vue?vue&type=template&id=1502778a&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _crear_usuario_vue_vue_type_template_id_1502778a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _crear_usuario_vue_vue_type_template_id_1502778a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/crear_usuario.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/crear_usuario.vue?vue&type=template&id=1502778a&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/crear_usuario.vue?vue&type=template&id=1502778a& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_crear_usuario_vue_vue_type_template_id_1502778a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./crear_usuario.vue?vue&type=template&id=1502778a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/crear_usuario.vue?vue&type=template&id=1502778a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_crear_usuario_vue_vue_type_template_id_1502778a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_crear_usuario_vue_vue_type_template_id_1502778a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

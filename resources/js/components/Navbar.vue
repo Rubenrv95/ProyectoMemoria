@@ -9,7 +9,7 @@
                 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="" style="color:white; font-size: 16">Agregar usuario<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="" data-toggle="modal" data-target="#modal_user" style="color:white; font-size: 16">Agregar usuario<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/home" style="color:white; font-size: 16">Inicio<span class="sr-only">(current)</span></a>
@@ -28,4 +28,5 @@
             </div>
         </nav>
     </div>
+
 </template>
