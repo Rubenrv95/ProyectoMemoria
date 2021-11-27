@@ -1,0 +1,131 @@
+
+body {
+        background: url("/images/u_talca.jpg"); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        margin: 0;
+}
+
+body#no-background{
+        background-image: none;
+}
+
+header {
+        position: relative;
+        margin: 0;
+        padding-top: 0px;
+}
+.loginbody {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        color: white;
+ }
+.header {
+        font-size: 26px;
+        margin-right: center;
+        margin-left: center;
+        text-align: center;
+        text-decoration: underline;
+        margin-bottom: 30px;
+        
+    }
+
+.label {
+        margin: center;
+}
+
+.button{
+        background-color: #2b0237 ; 
+        color: white;
+        padding: 5px;
+        border: 2px solid black;
+        width: 20%; 
+        margin-left: 450px; 
+        margin-bottom: 30px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+}
+
+.button:hover {
+        background-color: #b885e7;
+}
+
+
+.navbar {
+        background: rgb(79,43,105);
+        background: linear-gradient(94deg, rgba(79,43,105,1) 25%, rgba(111,94,124,1) 100%, rgba(117,96,133,1) 100%); 
+}
+
+.navbar-expand-lg {
+        color:white;
+}
+
+
+.navbar-light {
+        color:white;
+}
+
+.bg-light {
+        color:white;
+}
+
+#busc_carrera {
+        background-image: url('/images/search_icon.png'); /* Add a search icon to input */
+        background-position: 10px 12px; /* Position the search icon */
+        background-repeat: no-repeat; /* Do not repeat the icon image */
+        width: 100%; /* Full-width */
+        font-size: 16px; /* Increase font-size */
+        padding: 12px 20px 12px 40px; /* Add some padding */
+        border: 1px solid #ddd; /* Add a grey border */
+        margin-bottom: 12px; /* Add some space below the input */
+      }
+
+#mod_carrera {
+        background-image: url('/images/edit_icon.png');
+        background-repeat: no-repeat;
+        background-color: transparent;
+        width: 28px;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        border: none;
+}
+#mod_carrera:hover {
+        background-color: rgb(160, 159, 159);
+}
+#del_carrera {
+        background-image: url('/images/delete_icon.png');
+        background-repeat: no-repeat;
+        background-color: transparent;
+        width: 28px;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        border: none;   
+}
+#del_carrera:hover {
+        background-color: rgb(160, 159, 159);
+}
+      
+#carreras_lista {
+        /* Remove default list styling */
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+ }
+      
+#carreras_lista li a {
+        border: 1px solid #ddd; /* Add a border to all links */
+        margin-top: -1px; /* Prevent double borders */
+        background-color: #f6f6f6; /* Grey background color */
+        padding: 12px; /* Add some padding */
+        text-decoration: none; /* Remove default text underline */
+        font-size: 18px; /* Increase the font-size */
+        color: black; /* Add a black text color */
+        display: block; /* Make it into a block element to fill the whole list */
+}
+      
+#carreras_lista li a:hover:not(.header) {
+        background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
