@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Carrera;
 
 class CarreraController extends Controller
@@ -22,9 +23,29 @@ class CarreraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+
+        $request->validate([
+            'nombre_carrera'=>'required'
+
+        ]);
+
+
+        $query = DB::table('carreras')->insert([
+            'Nombre de la carrera'=>$request->input('nombre_carrera'),
+            'Área profesional'=>$request->input('area'),
+            /*'id' -> rand(1, 999)*/
+        ]);
+
+
+        return redirect()->intended('/home');
+    }
+
+    public function createForm()
+    {
+        return view('crearCarrera');
     }
 
     /**
@@ -58,7 +79,8 @@ class CarreraController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Carrera::select('select * from carreras where id = ?', [$id]);
+        return view ('modificarCarrera', ['data'=>$data]);
     }
 
     /**

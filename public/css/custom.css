@@ -65,7 +65,22 @@ header {
 }
 
 .button-accept:hover {
-        background-color: #32e032;
+        background-color: #155c15;
+
+}
+
+.button-delete {
+        background-color: rgb(218, 63, 63); 
+        color: white; 
+        border: 1px solid black;
+        font-size: 18;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 25%;
+}
+
+.button-delete:hover {
+        background-color: #880707;
 
 }
 
