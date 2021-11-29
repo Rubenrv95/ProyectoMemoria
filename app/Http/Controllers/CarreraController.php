@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Carrera;
+use Datatables;
 
 class CarreraController extends Controller
 {
@@ -15,7 +16,9 @@ class CarreraController extends Controller
      */
     public function index(Request $request)
     {
-        return Carrera::where('usuario_id', auth()->id()->get());
+        //return Carrera::where('usuario_id', auth()->id()->get());
+        $data = Carrera::orderBy('Nombre de la Carrera')->get(); 
+        return view ('/carreras', ['carrera'=>$data]);
     }
 
     /**
@@ -40,7 +43,7 @@ class CarreraController extends Controller
         ]);
 
 
-        return redirect()->intended('/home');
+        return redirect()->intended('/carreras');
     }
 
     public function createForm()
@@ -68,7 +71,7 @@ class CarreraController extends Controller
     public function show()
     {
         $data = Carrera::orderBy('Nombre de la Carrera')->get(); 
-        return view ('home', ['carreras'=>$data]);
+        return view ('/carreras', ['carreras'=>$data]);
     }
 
     /**
@@ -83,6 +86,11 @@ class CarreraController extends Controller
         return view ('modificarCarrera', ['data'=>$data]);
     }
 
+
+    public function verPlan() {
+
+        return view ('planes');
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -103,6 +111,8 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data= Carrera::find($id);
+        $data->delete();
+        return redirect('/carreras')->with('success', 'Logrado');
     }
 }

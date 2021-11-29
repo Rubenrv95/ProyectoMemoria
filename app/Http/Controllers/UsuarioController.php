@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UsuarioController extends Controller
 {
@@ -15,8 +16,8 @@ class UsuarioController extends Controller
     public function create_user(Request $request) {
 
         $request->validate([
-            'nombre'=>'required',
-            'email'=>'required|email',
+            'nombre'=>'required|string',
+            'email'=>'required|string|email',
             'password'  =>  'required|alphaNum|min:6'
         ]);
 
@@ -25,7 +26,7 @@ class UsuarioController extends Controller
             'nombre'=>$request->input('nombre'),
             'email'=>$request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'remember_token' => 'valor'
+            'remember_token' => Str::random(10)
         ]);
 
         return redirect()->intended('/home');

@@ -37516,89 +37516,75 @@ var staticRenderFns = [
       },
       [
         _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-          _c("li", { staticClass: "nav-item active" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                staticStyle: { color: "white", "font-size": "16" },
-                attrs: {
-                  href: "",
-                  "data-toggle": "modal",
-                  "data-target": "#modal_user",
-                },
-              },
-              [
-                _vm._v("Agregar usuario"),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item active" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                staticStyle: { color: "white", "font-size": "16" },
-                attrs: { href: "/home" },
-              },
-              [
-                _vm._v("Inicio"),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
           _c(
-            "li",
-            {
-              staticClass: "nav-item dropdown",
-              staticStyle: { "margin-right": "20%" },
-            },
+            "div",
+            { staticClass: "row", staticStyle: { "margin-right": "20px" } },
             [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link dropdown-toggle",
-                  staticStyle: { color: "white", "font-size": "16" },
-                  attrs: {
-                    href: "#",
-                    id: "navbarDropdown",
-                    role: "button",
-                    "data-toggle": "dropdown",
-                    "aria-haspopup": "true",
-                    "aria-expanded": "false",
+              _c("li", { staticClass: "nav-item active" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "nav-link",
+                    staticStyle: { color: "white", "font-size": "16" },
+                    attrs: { href: "/carreras" },
                   },
-                },
-                [_vm._v("\n                    Cuenta\n                    ")]
-              ),
+                  [
+                    _vm._v("Inicio"),
+                    _c("span", { staticClass: "sr-only" }, [
+                      _vm._v("(current)"),
+                    ]),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "dropdown-menu dropdown-menu-right",
-                  attrs: { "aria-labelledby": "navbarDropdown" },
-                },
-                [
-                  _c(
-                    "a",
-                    { staticClass: "dropdown-item", attrs: { href: "#" } },
-                    [_vm._v("Configuración")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "dropdown-divider" }),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-item",
-                      attrs: { href: "/login/logout" },
+              _c("li", { staticClass: "nav-item dropdown" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "nav-link dropdown-toggle",
+                    staticStyle: { color: "white", "font-size": "16" },
+                    attrs: {
+                      href: "#",
+                      id: "navbarDropdown",
+                      role: "button",
+                      "data-toggle": "dropdown",
+                      "aria-haspopup": "true",
+                      "aria-expanded": "false",
                     },
-                    [_vm._v("Cerrar sesión")]
-                  ),
-                ]
-              ),
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Cuenta\n                        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "dropdown-menu dropdown-menu-right",
+                    attrs: { "aria-labelledby": "navbarDropdown" },
+                  },
+                  [
+                    _c(
+                      "a",
+                      { staticClass: "dropdown-item", attrs: { href: "#" } },
+                      [_vm._v("Configuración")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "dropdown-divider" }),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "dropdown-item",
+                        attrs: { href: "/login/logout" },
+                      },
+                      [_vm._v("Cerrar sesión")]
+                    ),
+                  ]
+                ),
+              ]),
             ]
           ),
         ]),
