@@ -101,7 +101,10 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script>    
         $(document).ready(function() {
-            var table = $('#carreras_lista').DataTable();
+            var table = $('#carreras_lista').DataTable( {
+
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+            });
 
             //modificar
             table.on('click', '.edit', function() {
