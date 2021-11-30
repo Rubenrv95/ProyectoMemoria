@@ -1,61 +1,96 @@
 @extends('layouts.app')
-
+<!DOCTYPE html>
+<html lang="en">
 @section('pageTitle', 'Inicio')
 <head>
 
-    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/custom.css') }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css}" />
-    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
-    
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
 </head>
 
+
 @section('content')
-
-<navbar-component> </navbar-component>
 <body style="background-image:none; background-color: #f6f6f6">    
+    <!-- Barra de navegacion -->
+    <div id="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <b-navbar-brand class="md-mx-auto">
+                <img class="navbar-logo" src="images/utalca_icon.png" alt="Tryvium Logo">
+            </b-navbar-brand>
 
-        <div class="container">
-            <div class="inicio">
-                <div id="lista" style="width: auto; margin:center;">
-                <h1 style="margin: center; text-align: center">Listado de carreras</h1>
-                    <input type="text" id="busc_carrera" onkeyup="buscarCarrera()" placeholder="Buscar carrera...">
-                    <div class="col text-right">
-                        <button class="agregar_carrera" href="/views/crearCarrera" data-toggle="modal" data-target="#modal_crear_carrera" style="color:black; font-size: 16; margin-bottom: 10px;">
-                            Agregar carrera                    
-                        </button>
-                        <button class="agregar_carrera" href="#" data-toggle="modal" data-target="#modal_user" style="color:black; font-size: 16; margin-bottom: 10px;">Agregar usuario</button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                <ul class="navbar-nav ml-auto">
+                    <div class="row" style="margin-right: 20px">
+                        
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/carreras" style="color:white; font-size: 16px; margin-right: 10px">Inicio<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size: 16px">
+                            Cuenta
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Configuración</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/login/logout">Cerrar sesión</a>
+                            </div>
+                        </li>
                     </div>
-
-                    <table id="carreras_lista" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <td class="td-sm" style="width: 350px">Carrera </td>
-                                <td class="td-sm" style="width: 350px">Área profesional </td>
-                            </tr>
-                        <tbody>
-                        @foreach($carrera as $item) 
-                            <tr>
-                                <th style="width: 350px"> <a href="/planes">{{$item['Nombre de la Carrera']}}</a></th>
-                                <td style="width: 350px">{{$item['Área profesional']}}</td>
-                                <td style="width: 100px">
-                                    <button type="button" id="mod_carrera" data-toggle="modal" data-target="#modal_modificar_carrera">
-                                    <button type="button" id="del_carrera" data-toggle="modal" data-target="#modal_eliminar_carrera">
-                                </td>
-                                
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-
-                </div>
-
+                </ul>
             </div>
+        </nav>
+    </div>
+               
+        <div class="container">       
+   
+            <h1 style="margin: center; text-align: center; font-weight: bold; font-size: 36">Listado de carreras</h1>
+
+            <!--<input type="text" id="busc_carrera" onkeyup="buscarCarrera()" placeholder="Buscar carrera..."> -->
+            <div class="col text-center">
+                <button class="agregar_carrera" href="/views/crearCarrera" data-toggle="modal" data-target="#modal_crear_carrera" style="color:black; font-size: 16; margin-bottom: 10px;">
+                    Agregar carrera                    
+                </button>
+            <button class="agregar_carrera" href="#" data-toggle="modal" data-target="#modal_user" style="color:black; font-size: 16; margin-bottom: 10px;">
+                Agregar usuario
+            </button>
+            </div>
+
+            <table id="carreras_lista" class="table table-striped table-bordered" width="100%">
+                <thead>
+                    <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
+                        <td>Carrera </td>
+                        <td>Área profesional </td>
+                        <td></td>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                
+                    @foreach($carrera as $item)
+                    <tr>
+                        <td> {{$item['Nombre de la Carrera']}}</td>
+                        <td>{{$item['Area profesional']}}</td>
+                        <td>
+                            <a href="carreras/{{$item['Nombre de la Carrera']}}"><button type="button" id="info" > </button></a>
+                            <button type="button" id="mod" data-toggle="modal" data-target="#modal_modificar_carrera" class="edit"> </button>
+                            <button type="button" id="del" data-toggle="modal" data-target="#modal_eliminar_carrera" class="delete"> </button>
+                        </td>
+                        
+                    </tr>
+                    @endforeach
+                
+                </tbody>
+            </table> 
+                
         </div>
-
-
 
         <!-- Modal modificar carrera   -->
 
@@ -67,8 +102,8 @@
 
                             <form method = "post" action = "/carreras" class="form-group" id = "editForm">
 
-                            {{ csrf_field()}}
-                            {{ method_field('PUT')}}
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
 
                                 <div class="modal-content">
 
@@ -132,7 +167,7 @@
                                         <p style="font-size: 18">¿Está seguro de que desea eliminar ésta carrera?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type ="button" class="button-delete delete">{{ _('Eliminar') }}</button>
+                                        <button type="submit" class="button-delete">{{ _('Eliminar') }}</button>
                                         <button type ="button" class="button-cancel" data-dismiss="modal">{{ _('Cancelar') }}</button>
                                     </div> 
                                 </div>
@@ -144,87 +179,70 @@
             </div>
         </div>
 
-        
 
-    <script src="//cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-
-    <script>
-    $(document).ready(function() {
-        var table = $('#carreras_lista').DataTable();
-
-        //modificar
-        table.on('click', '.edit', function() {
-
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-            var data = table.row($tr).data();
-            console.log(data);
-
-            $('nombre_carrera').val(data[1]);
-
-            $('#editForm').attr('action', '/carreras/'+data[0]);
-            $('#modal_modificar_carrera').modal('show');
-
-        });
-
-
-        //eliminar
-        table.on('click', '.delete', function() {
-
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-            var data = table.row($tr).data();
-            console.log(data);
-
-
-            $('#deleteForm').attr('action', '/carreras/'+data[0]);
-            $('#modal_eliminar_carrera').modal('show');
-
-        }  );
-        
-    });
-
-    function buscarCarrera() {
-        // Declare variables
-        var input, filter, table, tr, th, i, txtValue;
-        input = document.getElementById("busc_carrera");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("carreras_lista");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            th = tr[i].getElementsByTagName("th")[0];
-            if (th) {
-            txtValue = th.textContent || th.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }
-        }
-    }
-
-
-    </script>
-
-        
 </body>
 @endsection
 
 
 
+@section('scripts')
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script>    
+        $(document).ready(function() {
+            var table = $('#carreras_lista').DataTable({
+
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+            });
+
+            
+
+            //modificar
+            table.on('click', '.edit', function() {
+
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+
+                var data = table.row($tr).data();
+                console.log(data);
+
+                $('#nombre_carrera').val(data[0]);
+                $('#area').val(data[1]);
+
+                $('#editForm').attr('action', '/carreras/'+data[0]);
+                $('#modal_modificar_carrera').modal('show');
+
+            });
+
+
+            //eliminar
+            table.on('click', '.delete', function() {
+
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+                var data = table.row($tr).data();
+                console.log(data);
+
+
+                $('#deleteForm').attr('action', '/carreras/'+data[0]);
+                $('#modal_eliminar_carrera').modal('show');
+
+            }  );
+            
+        });
+
+    </script>
+@endsection
+
+</html>
 
 @include('modals.crearUsuario')
 @include('modals.crearCarrera')

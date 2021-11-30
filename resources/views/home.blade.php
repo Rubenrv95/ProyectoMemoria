@@ -7,6 +7,5 @@
 <navbar-component> </navbar-component>
 
 <body style="background-image:none">    
-        <a href="/carreras"> Presiona aqui</a>
 </body>
 @endsection

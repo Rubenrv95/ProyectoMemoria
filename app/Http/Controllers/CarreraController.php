@@ -32,14 +32,12 @@ class CarreraController extends Controller
 
         $request->validate([
             'nombre_carrera'=>'required'
-
         ]);
 
 
         $query = DB::table('carreras')->insert([
             'Nombre de la carrera'=>$request->input('nombre_carrera'),
-            'Área profesional'=>$request->input('area'),
-            /*'id' -> rand(1, 999)*/
+            'Area profesional'=>$request->input('area'),
         ]);
 
 
@@ -62,17 +60,6 @@ class CarreraController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        $data = Carrera::orderBy('Nombre de la Carrera')->get(); 
-        return view ('/carreras', ['carreras'=>$data]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -82,14 +69,13 @@ class CarreraController extends Controller
      */
     public function edit($id)
     {
-        $data = Carrera::select('select * from carreras where id = ?', [$id]);
-        return view ('modificarCarrera', ['data'=>$data]);
     }
 
 
-    public function verPlan() {
+    public function show($id) {
 
-        return view ('planes');
+        $data = DB::table('carreras')->where('Nombre de la Carrera', $id)->get();
+        return view ('planes.planes', ['data'=>$id]);
     }
     /**
      * Update the specified resource in storage.
@@ -100,7 +86,20 @@ class CarreraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nombre_carrera'=>'required'
+
+        ]);
+
+
+        $query = DB::table('carreras')->where('Nombre de la carrera', $id)->update([
+            'Nombre de la carrera'=>$request->input('nombre_carrera'),
+            'Area profesional'=>$request->input('area'),
+        ]);
+        
+
+        return redirect('/carreras')->with('success', 'Data actualizada');
+
     }
 
     /**
@@ -111,8 +110,8 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        $data= Carrera::find($id);
-        $data->delete();
+        $query = DB::table('carreras')->where('Nombre de la carrera', $id)->delete();
+        
         return redirect('/carreras')->with('success', 'Logrado');
     }
 }

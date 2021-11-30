@@ -122,7 +122,8 @@ header {
         background-image: url('/images/add_icon.png');
         background-repeat: no-repeat; 
         background-color: transparent;
-        margin-left: auto;    
+        margin-left: auto;   
+        height: 25px;
         text-align: left;
         border: none; /* Remove borders */
         padding: 0px 30px; /* Some padding */
@@ -137,13 +138,18 @@ header {
         margin: center;    
         text-align: center;
         height: 50;
-        padding: 0px 60px;
+        padding: 0px 55px;
         border: none; /* Remove borders */ /* Some padding */
         font-size: 30; /* Set a font size */
         cursor: pointer; /* Mouse pointer on hover */
 }
 
 
+.nav-link:hover{
+
+        background-color: rgb(57, 42, 73);
+        border-radius: 8px;
+}
 
 #busc_carrera {
         background-image: url('/images/search_icon.png'); /* Add a search icon to input */
@@ -156,7 +162,23 @@ header {
         margin-bottom: 12px; /* Add some space below the input */
 }
 
-#mod_carrera {
+
+#info {
+
+        background-image: url('/images/info_icon.png');
+        background-repeat: no-repeat;
+        background-color: transparent;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        border: none;
+
+
+}
+
+#mod {
         background-image: url('/images/edit_icon.png');
         background-repeat: no-repeat;
         background-color: transparent;
@@ -167,10 +189,11 @@ header {
         outline: none;
         border: none;
 }
-#mod_carrera:hover {
-        background-color: rgb(160, 159, 159);
+#mod:hover {
+        background-color: rgb(135, 77, 201);
+        border-radius: 10px;
 }
-#del_carrera {
+#del {
         background-image: url('/images/delete_icon.png');
         background-repeat: no-repeat;
         background-color: transparent;
@@ -181,8 +204,9 @@ header {
         outline: none;
         border: none;   
 }
-#del_carrera:hover {
-        background-color: rgb(160, 159, 159);
+#del:hover {
+        background-color: rgb(135, 77, 201);
+        border-radius: 10px;
 }
       
 #carreras_lista {

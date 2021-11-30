@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('pageTitle', 'Sistema de Gestión de Planes de Estudio')
