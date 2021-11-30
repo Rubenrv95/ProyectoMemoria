@@ -20,16 +20,15 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::post('login', 'Auth\LoginController@authenticate');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 Route::get('/login/logout', 'Auth\LoginController@logout');
 
 
 Route::post('create', 'CarreraController@create');
 Route::resource('/carreras', 'CarreraController');
 Route::get('deleteCarrera/{id}', 'CarreraController@destroy');
+Route::get('carreras/{id}', 'CarreraController@show');
 
-
-Route::get('/planes', 'CarreraController@verPlan');
 
 Route::post('register', 'UsuarioController@create_user');
 
