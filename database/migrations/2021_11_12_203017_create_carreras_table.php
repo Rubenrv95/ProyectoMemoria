@@ -15,8 +15,8 @@ class CreateCarrerasTable extends Migration
     {
         Schema::create('Carreras', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Nombre');
-            $table->String('Area_profesional');
+            $table->string('Nombre de la Carrera');
+            $table->String('Area profesional');
             $table->timestamps();
         });
     }

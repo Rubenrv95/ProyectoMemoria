@@ -1,0 +1,37 @@
+.agregar_plan {
+    background-image: url('/images/add_icon_large.png');
+    background-repeat: no-repeat; 
+    border-radius: 8px;
+    background-color: #8f6ea3;
+    color: white;
+    margin: center;    
+    text-align: center;
+    height: 55;
+    padding: 0px 55px;
+    font-size: 30;
+    cursor: pointer; 
+}
+
+.agregar_plan:hover {
+    background-color: #5d486b;
+    border-radius: 8px;
+}
+
+.agregar_competencia {
+    background-image: url('/images/add_icon.png');
+    background-repeat: no-repeat; 
+    border-radius: 8px;
+    background-color: #8f6ea3;
+    color: white;
+    margin: center;    
+    text-align: center;
+    height: 28;
+    padding: 0px 28px;
+    font-size: 17;
+    cursor: pointer; 
+}
+
+.agregar_competencia:hover {
+    background-color: #5d486b;
+    border-radius: 8px;
+}

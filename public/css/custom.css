@@ -57,7 +57,7 @@ header {
 
 
 .button-accept {
-        background-color: green; 
+        background-color: rgb(4, 138, 4); 
         color: white; 
         border: 1px solid black;
         font-size: 18;
@@ -67,7 +67,7 @@ header {
 }
 
 .button-accept:hover {
-        background-color: #155c15;
+        background-color: #024402;
 
 }
 
@@ -121,29 +121,20 @@ header {
 .agregar_carrera {
         background-image: url('/images/add_icon.png');
         background-repeat: no-repeat; 
-        background-color: transparent;
+        background-color: #8f6ea3;
+        color: white;
         margin-left: auto;   
-        height: 25px;
+        height: 28px;
         text-align: left;
-        border: none; /* Remove borders */
+        border-radius: 8px;
         padding: 0px 30px; /* Some padding */
         cursor: pointer; /* Mouse pointer on hover */
 }
 
-
-.agregar_plan {
-        background-image: url('/images/add_icon_large.png');
-        background-repeat: no-repeat; 
-        background-color: transparent;
-        margin: center;    
-        text-align: center;
-        height: 50;
-        padding: 0px 55px;
-        border: none; /* Remove borders */ /* Some padding */
-        font-size: 30; /* Set a font size */
-        cursor: pointer; /* Mouse pointer on hover */
+.agregar_carrera:hover {
+        background-color: #5d486b;
+        border-radius: 8px;
 }
-
 
 .nav-link:hover{
 
@@ -178,6 +169,11 @@ header {
 
 }
 
+#info:hover {
+        background-color: rgb(9, 66, 224);
+        border-radius: 10px;
+}
+
 #mod {
         background-image: url('/images/edit_icon.png');
         background-repeat: no-repeat;
@@ -190,7 +186,7 @@ header {
         border: none;
 }
 #mod:hover {
-        background-color: rgb(135, 77, 201);
+        background-color: rgb(9, 128, 224);
         border-radius: 10px;
 }
 #del {
@@ -205,7 +201,7 @@ header {
         border: none;   
 }
 #del:hover {
-        background-color: rgb(135, 77, 201);
+        background-color: rgb(245, 39, 39);
         border-radius: 10px;
 }
       

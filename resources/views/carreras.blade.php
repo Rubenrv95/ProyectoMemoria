@@ -55,10 +55,10 @@
 
             <!--<input type="text" id="busc_carrera" onkeyup="buscarCarrera()" placeholder="Buscar carrera..."> -->
             <div class="col text-center">
-                <button class="agregar_carrera" href="/views/crearCarrera" data-toggle="modal" data-target="#modal_crear_carrera" style="color:black; font-size: 16; margin-bottom: 10px;">
+                <button class="agregar_carrera" href="/views/crearCarrera" data-toggle="modal" data-target="#modal_crear_carrera" style="font-size: 16; margin-bottom: 10px;">
                     Agregar carrera                    
                 </button>
-            <button class="agregar_carrera" href="#" data-toggle="modal" data-target="#modal_user" style="color:black; font-size: 16; margin-bottom: 10px;">
+            <button class="agregar_carrera" href="#" data-toggle="modal" data-target="#modal_user" style="font-size: 16; margin-bottom: 10px;">
                 Agregar usuario
             </button>
             </div>
@@ -160,15 +160,15 @@
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h1 class="justify-content-center" style="font-size: 60; text-align: center"> {{ _('Eliminar Carrera') }}</h1>
+                                        <h1 class="justify-content-center" style="font-size: 60; text-align: center"> Eliminar Carrera</h1>
                                     </div>
                                     <div class="modal-body">
-                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <input type="hidden" name="method" value="DELETE"> 
                                         <p style="font-size: 18">¿Está seguro de que desea eliminar ésta carrera?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="button-delete">{{ _('Eliminar') }}</button>
-                                        <button type ="button" class="button-cancel" data-dismiss="modal">{{ _('Cancelar') }}</button>
+                                        <button type="submit" class="button-delete">Eliminar</button>
+                                        <button type ="button" class="button-cancel" data-dismiss="modal">Cancelar</button>
                                     </div> 
                                 </div>
 

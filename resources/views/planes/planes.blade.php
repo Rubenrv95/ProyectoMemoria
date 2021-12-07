@@ -81,7 +81,7 @@
             <div class="card" style="width:auto; height: auto; background-color: transparent; border: none">
                 <div class="card-body">
                     <div class="col text-center">
-                        <button class="agregar_plan" href="" data-toggle="modal" data-target="" style="color:black;">
+                        <button class="agregar_plan" data-toggle="modal" data-target="#modal_crear_plan">
                             Añadir plan de estudio                    
                         </button>
                     </div>
@@ -144,7 +144,11 @@
 
             }  );
             
+        
+            
         });
 
     </script>
 @endsection
+
+@include('modals.crearPlan')
