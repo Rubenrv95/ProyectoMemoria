@@ -29,6 +29,11 @@ Route::resource('/carreras', 'CarreraController');
 Route::get('deleteCarrera/{id}', 'CarreraController@destroy');
 Route::get('carreras/{id}', 'CarreraController@show');
 
+Route::post('createPlan', 'PlanController@create');
+Route::resource('carreras/{id}', 'PlanController');
+
+Route::post('createCompetencia', 'PlanController@create');
+Route::resource('/competencias', 'CompetenciaController');
 
 Route::post('register', 'UsuarioController@create_user');
 

@@ -16,7 +16,6 @@ class CarreraController extends Controller
      */
     public function index(Request $request)
     {
-        //return Carrera::where('usuario_id', auth()->id()->get());
         $data = Carrera::orderBy('Nombre de la Carrera')->get(); 
         return view ('/carreras', ['carrera'=>$data]);
     }
@@ -74,8 +73,9 @@ class CarreraController extends Controller
 
     public function show($id) {
 
-        $data = DB::table('carreras')->where('Nombre de la Carrera', $id)->get();
-        return view ('planes.planes', ['data'=>$id]);
+        $result = DB::table('planes')->where('Carrera_asociada', $id)->get();
+        $data = json_decode($result, true);
+        return view ('planes.planes', ['data'=>$data], ['name'=>$id]);
     }
     /**
      * Update the specified resource in storage.

@@ -48,12 +48,12 @@
         </nav>
     </div>
 
-    <h1 style="text-align: center"> {{ $data }} </h1>
+    <h1 style="text-align: center"> {{ $name }} </h1>
 
 
     <div class="container">
 
-        <table id="carreras_lista" class="table table-striped table-bordered" width="100%">
+        <table id="planes_lista" class="table table-striped table-bordered" width="100%">
             <thead>
                 <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
                     <td class="td-sm" style="width: 350px">Plan </td>
@@ -64,16 +64,18 @@
             
             <tbody>
             
+            
+            @foreach($data as $item)
                 <tr>
-                    <th style="width: 350px"> Plan 16</th>
-                    <td style="width: 350px">29/11/2016</td>
+                    <th style="width: 350px"> {{ $item['Nombre'] }}</th>
+                    <td style="width: 350px">{{ $item['updated_at'] }}</td>
                     <td style="width: 100px">
                         <button type="button" id="mod">
                         <button type="button" id="del">
                     </td>
                     
                 </tr>
-                    
+            @endforeach
             </tbody>
             
         </table> 
@@ -101,9 +103,9 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script>    
         $(document).ready(function() {
-            var table = $('#carreras_lista').DataTable( {
-
+            var table = $('#planes_lista').DataTable( {
                 "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                
             });
 
             //modificar

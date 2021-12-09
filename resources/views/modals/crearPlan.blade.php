@@ -3,7 +3,7 @@
         <div class ="col-md-12">
             <div class="modal fade" id="modal_crear_plan">
                 <div class="modal-dialog modal-md">
-                    <form action="" method="POST" class="form-group">
+                    <form action="createPlan" method="POST" class="form-group">
                     @csrf
                         <div class="modal-content" style="width: 600px">
 
@@ -14,12 +14,12 @@
 
                                     <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                         <label style="font-size: 20">Nombre del plan</label>
-                                        <input class="form-control form-control-lg" name="nombre_plan" style="width: 550px"  placeholder="Ingrese el nombre de la carrera"/>
+                                        <input class="form-control form-control-lg" name="nombre_plan" style="width: 550px"  placeholder="Ingrese el nombre del plan"/>
                                         <span style="color: red">@error('nombre_carrera')  Debe ingresar un nombre para el plan  @enderror</span>                 
                                     </div>
                                     <div class="form-group" style="margin:auto">
                                         <div class="input_fields_wrap"> 
-                                            <label style="font-size: 20">Competencia</label>
+                                            <label style="font-size: 20">Competencias</label>
                                             <div>
                                                 <button type="button" class="agregar_competencia" style="margin-bottom: 15px">
                                                         Añadir Competencia                 
@@ -58,7 +58,9 @@
             e.preventDefault();
             if(x <= fields_maximos) {
                 x++;
-                $(wrapper).append('<div> <input name="competencia" style="width: 500px; margin-bottom: 10px"  placeholder="Ingrese una competencia"/> <button type="button" id="del" class="remove_field"> </div>')
+                $(wrapper).append(
+                    '<div>  <label style="font-size: 18"> Descripción Competencia </label> <input name="competencia" style="width: 500px; margin-bottom: 10px"  placeholder="Ingrese una competencia"/>  <label style="font-size: 18">Tipo de Competencia</label> <select class="form-select form-select-lg" name="area" aria-label=".form-select-lg example" style="width:110px; margin-bottom: 20px; font-size: 18"> <option selected value="Específica">Específica</option> <option value="Genérica">Genérica</option> <option value="Común">Común</option> </select> <button type="button" id="del" class="remove_field"> </div>'
+                )
             }
 
         });
