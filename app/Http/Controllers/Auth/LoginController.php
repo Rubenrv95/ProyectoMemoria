@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Auth;
 use Validator;
 
@@ -29,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/carreras';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -41,7 +42,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function authenticate(Request $request)
+    public function index()
+    {
+        return view('welcome');
+    }
+
+    public function login(Request $request)
     {
 
         $this->validate($request, [
@@ -53,7 +59,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('/carreras');
+            return redirect()->intended('/home');
         }
         else {
             return back()->with('error', 'Datos incorrectos');
@@ -62,7 +68,6 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-        return view('welcome');
+        return view('auth.login');
     }
-
 }

@@ -1,103 +1,63 @@
 @extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
-@section('pageTitle', 'Inicio')
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado de carreras</title>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+        <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 </head>
-
-
 @section('content')
-<body style="background-image:none; background-color: #f6f6f6">    
-    <!-- Barra de navegacion -->
-    <div id="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <b-navbar-brand class="md-mx-auto">
-                <img class="navbar-logo" src="images/utalca_icon.png" alt="Tryvium Logo">
-            </b-navbar-brand>
+<body >
+        <div class="container-fluid">   
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="mb-0 text-gray-800">Lista de Carreras</h1>
+                </div>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                
-                <ul class="navbar-nav ml-auto">
-                    <div class="row" style="margin-right: 20px">
-                        
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/carreras" style="color:white; font-size: 16px; margin-right: 10px">Inicio<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size: 16px">
-                            Cuenta
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Configuración</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/login/logout">Cerrar sesión</a>
-                            </div>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </div>
-               
-        <div class="container">       
-   
-            <h1 style="margin: center; text-align: center; font-weight: bold; font-size: 36">Listado de carreras</h1>
-
-            <!--<input type="text" id="busc_carrera" onkeyup="buscarCarrera()" placeholder="Buscar carrera..."> -->
-            <div class="col text-center">
-                <button class="agregar_carrera" href="/views/crearCarrera" data-toggle="modal" data-target="#modal_crear_carrera" style="font-size: 16; margin-bottom: 10px;">
-                    Agregar carrera                    
+                <button class="agregar_carrera" data-bs-toggle="modal" data-bs-target="#modal_crear_carrera" style="margin-bottom: 10px;">
+                        Agregar carrera                    
                 </button>
-            <button class="agregar_carrera" href="#" data-toggle="modal" data-target="#modal_user" style="font-size: 16; margin-bottom: 10px;">
-                Agregar usuario
-            </button>
-            </div>
 
-            <table id="carreras_lista" class="table table-striped table-bordered" width="100%">
-                <thead>
-                    <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
-                        <td>Carrera </td>
-                        <td>Área profesional </td>
-                        <td></td>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                
-                    @foreach($carrera as $item)
-                    <tr>
-                        <td> {{$item['Nombre de la Carrera']}}</td>
-                        <td>{{$item['Area profesional']}}</td>
-                        <td>
-                            <a href="carreras/{{$item['Nombre de la Carrera']}}"><button type="button" id="info" > </button></a>
-                            <button type="button" id="mod" data-toggle="modal" data-target="#modal_modificar_carrera" class="edit"> </button>
-                            <button type="button" id="del" data-toggle="modal" data-target="#modal_eliminar_carrera" class="delete"> </button>
-                        </td>
+                <table id="carreras_lista" class="table table-striped table-bordered" width="100%">
+                        <thead>
+                                <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
+                                <td>Carrera </td>
+                                <td>Área profesional </td>
+                                <td></td>
+                                </tr>
+                        </thead>
                         
-                    </tr>
-                    @endforeach
-                
-                </tbody>
-            </table> 
-                
+                        <tbody>
+                        
+                                @foreach($carrera as $item)
+                                <tr>
+                                <td> {{$item['nombre']}}</td>
+                                <td>{{$item['area']}}</td>
+                                <td>
+                                        <a href="/carreras/{{$item['id']}}"><button type="button" id="info" > </button></a>
+                                        <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit"> </button>
+                                        <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_carrera" class="delete"> </button>
+                                </td>
+                                
+                                </tr>
+                                @endforeach
+                        
+                        </tbody>
+                </table> 
+
         </div>
+
 
         <!-- Modal modificar carrera   -->
 
         <div class="container">
             <div class="row">
                 <div class ="col-md-12">
-                    <div class="modal fade" id="modal_modificar_carrera">
+                    <div class="modal fade" id="modal_modificar_carrera" aria-hidden="true">
                         <div class="modal-dialog modal-md" >
 
                             <form method = "post" action = "/carreras" class="form-group" id = "editForm">
@@ -108,7 +68,7 @@
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h1 class="justify-content-center" style="font-size: 60; text-align: center"> Modificar carrera</h1>
+                                        <h1 class="justify-content-center" style="margin: auto"> Modificar carrera</h1>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group" style="margin: auto;">
@@ -133,7 +93,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="button-accept">Guardar</button>
-                                        <button type="button" class="button-cancel" data-dismiss="modal">Cancelar</button>
+                                        <button class="button-cancel" data-bs-dismiss="modal" type="button"> Cancelar</button>
                                     </div> 
                                 </div>
                             </form>
@@ -150,7 +110,7 @@
         <div class="container">
             <div class="row">
                 <div class ="col-md-12">
-                    <div class="modal fade" id="modal_eliminar_carrera">
+                    <div class="modal fade" id="modal_eliminar_carrera" aria-hidden="true">
                         <div class="modal-dialog modal-md" >
                             <form method = "post" action = "/carreras" class="form-group" id = "deleteForm">
 
@@ -160,7 +120,7 @@
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h1 class="justify-content-center" style="font-size: 60; text-align: center"> Eliminar Carrera</h1>
+                                        <h1 class="justify-content-center" style="margin: auto"> Eliminar Carrera</h1>
                                     </div>
                                     <div class="modal-body">
                                         <input type="hidden" name="method" value="DELETE"> 
@@ -168,7 +128,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="button-delete">Eliminar</button>
-                                        <button type ="button" class="button-cancel" data-dismiss="modal">Cancelar</button>
+                                        <button class="button-cancel" data-bs-dismiss="modal" type="button"> Cancelar</button>
                                     </div> 
                                 </div>
 
@@ -179,17 +139,9 @@
             </div>
         </div>
 
-
-</body>
-@endsection
-
-
-
-@section('scripts')
-
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script>    
         $(document).ready(function() {
             var table = $('#carreras_lista').DataTable({
@@ -240,9 +192,8 @@
         });
 
     </script>
+</body>
 @endsection
 
 </html>
-
-@include('modals.crearUsuario')
 @include('modals.crearCarrera')

@@ -1,57 +1,29 @@
 @extends('layouts.app')
-@section('pageTitle', 'Lista de Planes')
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/custom.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-
-
-
+    <title>Lista de Planes</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 </head>
+
 @section('content')
-
-<body style="background-image:none; background-color: #f6f6f6">
-
-    <!-- Barra de navegacion -->
-    <div id="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <b-navbar-brand class="md-mx-auto">
-                <img class="navbar-logo" src=".../images/utalca_icon.png" alt="Tryvium Logo">
-            </b-navbar-brand>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                
-                <ul class="navbar-nav ml-auto">
-                    <div class="row" style="margin-right: 20px">
-                        
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/carreras" style="color:white; font-size: 16px; margin-right: 10px">Inicio<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; font-size: 16px">
-                            Cuenta
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Configuración</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/login/logout">Cerrar sesión</a>
-                            </div>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </div>
-
-    <h1 style="text-align: center"> {{ $name }} </h1>
+<body>
 
 
-    <div class="container">
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @foreach($name as $n)
+            <h1 class="mb-0 text-gray-800"> {{ $n['nombre'] }} </h1>
+        @endforeach
+        </div>
+        <button class="agregar_carrera" data-bs-toggle="modal" data-bs-target="#modal_crear_plan"  style="margin-bottom: 10px;">
+            Añadir plan de estudio                    
+        </button>
+
 
         <table id="planes_lista" class="table table-striped table-bordered" width="100%">
             <thead>
@@ -80,27 +52,52 @@
             
         </table> 
 
-            <div class="card" style="width:auto; height: auto; background-color: transparent; border: none">
-                <div class="card-body">
-                    <div class="col text-center">
-                        <button class="agregar_plan" data-toggle="modal" data-target="#modal_crear_plan">
-                            Añadir plan de estudio                    
-                        </button>
+
+        <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    <div tabIndex="-1" class="modal fade" id="modal_crear_plan" aria-hidden="true"> 
+                        <div class="modal-dialog modal-md">
+                            <form action="crearPlan" method="POST" class="form-group">
+                            @csrf
+                            @method('POST')
+                                <div class="modal-content" style="width: 600px">
+
+                                    <div class="modal-header">
+                                        <h1 class="justify-content-center" style="margin: auto"> Crear Plan de Estudio</h1>
+                                    </div>
+                                    <div class="modal-body">
+
+                                            <div class="form-group" style="margin: auto; margin-bottom: 20px">
+                                                <label style="font-size: 20">Nombre del plan</label>
+                                                <input class="form-control form-control-lg" name="nombre_plan" style="width: 550px"  placeholder="Ingrese el nombre del plan"/>
+                                                <span style="color: red">@error('nombre_plan')  Debe ingresar un nombre para el plan  @enderror</span>                 
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input name="nombre_carrera" type="hidden" value="{{ $id }}">              
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                                <button class="button-accept" type="submit">Guardar</button>
+                                                <button class="button-cancel" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                    </div> 
+                                
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+    
     </div>
-
-
-</body>
-
-@endsection
-
-@section('scripts')
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script>    
         $(document).ready(function() {
             var table = $('#planes_lista').DataTable( {
@@ -151,6 +148,10 @@
         });
 
     </script>
-@endsection
+</body>
 
-@include('modals.crearPlan')
+
+</html>
+
+
+@endsection

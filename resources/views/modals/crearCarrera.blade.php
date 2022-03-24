@@ -1,14 +1,14 @@
 <div class="container">
             <div class="row">
                 <div class ="col-md-12">
-                    <div class="modal fade" id="modal_crear_carrera">
+                    <div tabIndex="-1"  class="modal fade" id="modal_crear_carrera" aria-hidden="true">
                         <div class="modal-dialog modal-md" >
-                            <form action="create" method="POST" class="form-group">
+                            <form action="crearCarrera" method="POST" class="form-group">
                             @csrf
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h1 class="justify-content-center" style="font-size: 65; text-align: center"> Agregar carrera</h1>
+                                        <h1 class="justify-content-center" style="margin: auto"> Agregar carrera</h1>
                                     </div>
                                     <div class="modal-body">
 
@@ -34,8 +34,8 @@
                                             </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="button-accept" type="submit">Guardar</button>
-                                        <button class="button-cancel" data-dismiss="modal">Cancelar</button>
+                                        <button class="button-accept" type="submit"> Guardar</button>
+                                        <button class="button-cancel" data-bs-dismiss="modal" type="button"> Cancelar</button>
                                     </div> 
                                 
                                 </div>
@@ -44,4 +44,4 @@
                     </div>
                 </div>
             </div>
-    </div>
+</div>

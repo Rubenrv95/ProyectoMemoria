@@ -1,228 +1,248 @@
 
-body {
-        background: url("/images/u_talca.jpg"); 
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; 
-        margin: 0;
+body, html{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f6f6f6"
 }
 
-body#no-background{
-        background-image: none;
-}
+
 
 header {
-        position: relative;
-        margin: 0;
-        padding-top: 0px;
+    position: relative;
+    margin: 0;
+    padding-top: 0px;
 }
-.loginbody {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 16px;
-        color: white;
-        position: center; 
-        margin-top: 150px;
- }
+
 .header {
-        font-size: 26px;
-        margin-right: center;
-        margin-left: center;
-        text-align: center;
-        text-decoration: underline;
-        margin-bottom: 30px;
-        
-    }
-
-.label {
-        margin: center;
+    font-size: 26px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+    
 }
 
-.button{
-        background-color: #2b0237 ; 
-        color: white;
-        padding: 5px;
-        border: 2px solid black;
-        width: 20%; 
-        text-align: center;
-        margin-left: 450px; 
-        margin-bottom: 30px;
-        transition-duration: 0.4s;
-        cursor: pointer;
-        border-radius: 8px;
+
+.button-login{
+    background-color: #2b0237 ; 
+    color: white;
+    padding: 5px;
+    border: 2px solid black;
+    width: 60%; 
+    text-align: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
 }
 
-.button:hover {
-        background-color: #b885e7;
+.button-login:hover {
+    background-color: #b885e7;
+}
+
+.button-login:active {
+    background-color: #12041f;
 }
 
 
 .button-accept {
-        background-color: rgb(4, 138, 4); 
-        color: white; 
-        border: 1px solid black;
-        font-size: 18;
-        border-radius: 8px;
-        cursor: pointer;
-        width: 25%;
+    background-color: rgb(3, 153, 3); 
+    color: white; 
+    border: 1px solid black;
+    font-size: 18;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 25%;
 }
 
 .button-accept:hover {
-        background-color: #024402;
+    background-color: #006b00;
+
+}
+
+.button-accept:active {
+    background-color: #004400;
 
 }
 
 .button-delete {
-        background-color: rgb(218, 63, 63); 
-        color: white; 
-        border: 1px solid black;
-        font-size: 18;
-        border-radius: 8px;
-        cursor: pointer;
-        width: 25%;
+    background-color: rgb(218, 63, 63); 
+    color: white; 
+    border: 1px solid black;
+    font-size: 18;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 25%;
 }
 
 .button-delete:hover {
-        background-color: #880707;
+    background-color: #880707;
 
 }
 
+.button-delete:active {
+    background-color: #470303;
+
+}
+
+
 .button-cancel {
-        border: 1px solid black;
-        font-size: 18;
-        border-radius: 8px;
-        cursor: pointer;
-        width: 25%;
+    border: 1px solid black;
+    font-size: 18;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 25%;
+    background-color: rgb(221, 221, 221); 
 }
 
 .button-cancel:hover {
-        
+    background-color: rgb(117, 117, 117); 
 }
 
-
+.button-cancel:active {
+    background-color: rgb(68, 68, 68); 
+}
 
 .navbar {
-        background: rgb(79,43,105);
-        background: linear-gradient(94deg, rgba(79,43,105,1) 25%, rgba(111,94,124,1) 100%, rgba(117,96,133,1) 100%); 
+    background: rgb(79,43,105);
+    background: linear-gradient(94deg, rgba(79,43,105,1) 25%, rgba(111,94,124,1) 100%, rgba(117,96,133,1) 100%); 
 }
 
 .navbar-expand-lg {
-        color:white;
+    color:white;
 }
 
 
 .navbar-light {
-        color:white;
+    color:white;
 }
 
 .bg-light {
-        color:white;
+    color:white;
 }
 
 .agregar_carrera {
-        background-image: url('/images/add_icon.png');
-        background-repeat: no-repeat; 
-        background-color: #8f6ea3;
-        color: white;
-        margin-left: auto;   
-        height: 28px;
-        text-align: left;
-        border-radius: 8px;
-        padding: 0px 30px; /* Some padding */
-        cursor: pointer; /* Mouse pointer on hover */
+    background-image: url('/images/add_icon.png');
+    background-repeat: no-repeat; 
+    background-color: #8f6ea3;
+    color: white;
+    margin-left: auto;   
+    height: 28px;
+    text-align: left;
+    border-radius: 8px;
+    padding: 0px 30px; /* Some padding */
+    cursor: pointer; /* Mouse pointer on hover */
 }
 
 .agregar_carrera:hover {
-        background-color: #5d486b;
-        border-radius: 8px;
+    background-color: #5d486b;
+    border-radius: 8px;
+}
+
+.agregar_carrera:active {
+    background-color: #382c41;
+    border-radius: 8px;
 }
 
 .nav-link:hover{
 
-        background-color: rgb(57, 42, 73);
-        border-radius: 8px;
+    background-color: rgb(57, 42, 73);
+    border-radius: 8px;
 }
 
 #busc_carrera {
-        background-image: url('/images/search_icon.png'); /* Add a search icon to input */
-        background-position: 10px 12px; /* Position the search icon */
-        background-repeat: no-repeat; /* Do not repeat the icon image */
-        width: 100%; /* Full-width */
-        font-size: 16px; /* Increase font-size */
-        padding: 12px 20px 12px 40px; /* Add some padding */
-        border: 2px solid #ddd; /* Add a grey border */
-        margin-bottom: 12px; /* Add some space below the input */
+    background-image: url('/images/search_icon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 2px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
 }
 
 
 #info {
 
-        background-image: url('/images/info_icon.png');
-        background-repeat: no-repeat;
-        background-color: transparent;
-        width: 28px;
-        height: 28px;
-        cursor: pointer;
-        overflow: hidden;
-        outline: none;
-        border: none;
+    background-image: url('/images/info_icon.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;
 
 
-}
-
-#info:hover {
-        background-color: rgb(9, 66, 224);
-        border-radius: 10px;
 }
 
 #mod {
-        background-image: url('/images/edit_icon.png');
-        background-repeat: no-repeat;
-        background-color: transparent;
-        width: 28px;
-        height: 28px;
-        cursor: pointer;
-        overflow: hidden;
-        outline: none;
-        border: none;
+    background-image: url('/images/edit_icon.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;
 }
 #mod:hover {
-        background-color: rgb(9, 128, 224);
-        border-radius: 10px;
+    background-color: rgb(9, 128, 224);
+    border-radius: 10px;
+}
+
+#mod:active {
+    background-color: rgb(4, 79, 139);
+    border-radius: 10px;
 }
 #del {
-        background-image: url('/images/delete_icon.png');
-        background-repeat: no-repeat;
-        background-color: transparent;
-        width: 28px;
-        height: 28px;
-        cursor: pointer;
-        overflow: hidden;
-        outline: none;
-        border: none;   
+    background-image: url('/images/delete_icon.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;   
 }
 #del:hover {
-        background-color: rgb(245, 39, 39);
-        border-radius: 10px;
+    background-color: rgb(245, 39, 39);
+    border-radius: 10px;
 }
-      
-#carreras_lista {
-        border-collapse: collapse; /* Collapse borders */
-        width: 100%; /* Full-width */
-        border: 2px solid #ddd; /* Add a grey border */
-        font-size: 18px; /* Increase font-size */
+  
+#del:active {
+    background-color: rgb(172, 23, 23);
+    border-radius: 10px;
 }
-      
+
+#carreras_lista, #usuarios_lista {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 2px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+  
 #carreras_lista th, #carreras_lista td {
-        text-align: left; /* Left-align text */
-        padding: 12px; /* Add padding */
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
 }
-      
-#carreras_lista tr {
-        /* Add a bottom border to all table rows */
-        border-bottom: 2px solid #ddd;
+
+#usuarios_lista th, #usuarios_lista td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
 }
-      
+  
+#carreras_lista, #usuarios_lista tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 2px solid #ddd;
+}
+  
 #carreras_lista tr.header, #carreras_lista tr:hover {
-        /* Add a grey background color to the table header and on hover */
-        background-color: #c1b0ca;
+    /* Add a grey background color to the table header and on hover */
+    background-color: #c1b0ca;
+}
+
+#usuarios_lista tr.header, #usuarios_lista tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #c1b0ca;
 }

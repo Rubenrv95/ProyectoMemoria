@@ -1,8 +1,12 @@
 <?php
 
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlanController;
+use App\Http\Controllers\Auth\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,29 +19,35 @@ use App\Http\Controllers\UsuarioController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/home', function() {
+    return view('home');
 });
 
 Auth::routes();
-Route::post('login', 'Auth\LoginController@authenticate');
 Route::get('/home', 'HomeController@index');
-Route::get('/login/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');
+Route::post('/login', 'Auth\LoginController@login');
 
 
-Route::post('create', 'CarreraController@create');
+Route::post('crearCarrera', 'CarreraController@create');
 Route::resource('/carreras', 'CarreraController');
-Route::get('deleteCarrera/{id}', 'CarreraController@destroy');
-Route::get('carreras/{id}', 'CarreraController@show');
+Route::post('crearPlan', 'CarreraController@createPlan');
 
-Route::post('createPlan', 'PlanController@create');
-Route::resource('carreras/{id}', 'PlanController');
+Route::resource('/usuarios', 'UserController');
+Route::post('register', 'UserController@create');
 
-Route::post('createCompetencia', 'PlanController@create');
-Route::resource('/competencias', 'CompetenciaController');
 
-Route::post('register', 'UsuarioController@create_user');
-
+/*
 
 Route::group(['middleware' => ['auth']], function () {
     
-});
+}); */ 
+
+
+
+
+
+
