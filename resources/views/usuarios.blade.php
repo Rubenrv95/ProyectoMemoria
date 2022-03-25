@@ -20,13 +20,13 @@
                 Agregar usuario
                 </button>
 
-                <table id="usuarios_lista" class="table table-striped table-bordered" width="100%">
+                <table id="lista" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
-                                <td>Nombre de usuario </td>
-                                <td>Correo Electrónico </td>
-                                <td>Facultad</td>
-                                <td></td>
+                                <th>Nombre de usuario </th>
+                                <th>Correo Electrónico </th>
+                                <th>Facultad</th>
+                                <th></th>
                                 </tr>
                         </thead>
                         
@@ -154,7 +154,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script>    
         $(document).ready(function() {
-            var table = $('#usuarios_lista').DataTable({
+            var table = $('#lista').DataTable({
 
                 "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
             });

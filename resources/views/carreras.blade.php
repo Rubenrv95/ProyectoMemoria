@@ -22,12 +22,12 @@
                         Agregar carrera                    
                 </button>
 
-                <table id="carreras_lista" class="table table-striped table-bordered" width="100%">
+                <table id="lista" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
-                                <td>Carrera </td>
-                                <td>Área profesional </td>
-                                <td></td>
+                                <th>Carrera </th>
+                                <th>Área profesional </tdh>
+                                <th></th>
                                 </tr>
                         </thead>
                         
@@ -144,7 +144,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script>    
         $(document).ready(function() {
-            var table = $('#carreras_lista').DataTable({
+            var table = $('#lista').DataTable({
 
                 "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
             });

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Planes</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 </head>
@@ -25,11 +27,11 @@
         </button>
 
 
-        <table id="planes_lista" class="table table-striped table-bordered" width="100%">
+        <table id="lista" class="table table-striped table-bordered" width="100%">
             <thead>
                 <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
-                    <td class="td-sm" style="width: 350px">Plan </td>
-                    <td class="td-sm" style="width: 350px">Fecha de actualización </td>
+                    <th style="width: 350px">Plan </th>
+                    <th style="width: 350px">Fecha de actualización </th>
                     <td></td>
                 </tr>
             </thead>
@@ -39,7 +41,7 @@
             
             @foreach($data as $item)
                 <tr>
-                    <th style="width: 350px"> {{ $item['Nombre'] }}</th>
+                    <td style="width: 350px"> {{ $item['Nombre'] }}</td>
                     <td style="width: 350px">{{ $item['updated_at'] }}</td>
                     <td style="width: 100px">
                         <button type="button" id="mod">
@@ -58,7 +60,7 @@
                 <div class ="col-md-12">
                     <div tabIndex="-1" class="modal fade" id="modal_crear_plan" aria-hidden="true"> 
                         <div class="modal-dialog modal-md">
-                            <form action="crearPlan" method="POST" class="form-group">
+                            <form action="/carreras/{{$id}}/crearPlan" method="POST" class="form-group">
                             @csrf
                             @method('POST')
                                 <div class="modal-content" style="width: 600px">
@@ -100,7 +102,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script>    
         $(document).ready(function() {
-            var table = $('#planes_lista').DataTable( {
+            var table = $('#lista').DataTable( {
                 "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
                 
             });

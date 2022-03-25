@@ -31,10 +31,11 @@ Route::get('/home', 'HomeController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::post('/login', 'Auth\LoginController@login');
 
-
 Route::post('crearCarrera', 'CarreraController@create');
 Route::resource('/carreras', 'CarreraController');
-Route::post('crearPlan', 'CarreraController@createPlan');
+Route::get('/carreras/{id}', 'CarreraController@show');
+Route::post('/carreras/{id}/crearPlan', 'CarreraController@createPlan');
+//Route::post('crearPlan', 'CarreraController@createPlan');
 
 Route::resource('/usuarios', 'UserController');
 Route::post('register', 'UserController@create');

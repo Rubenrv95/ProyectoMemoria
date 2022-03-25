@@ -215,34 +215,26 @@ header {
     border-radius: 10px;
 }
 
-#carreras_lista, #usuarios_lista {
+#lista {
     border-collapse: collapse; /* Collapse borders */
     width: 100%; /* Full-width */
     border: 2px solid #ddd; /* Add a grey border */
     font-size: 18px; /* Increase font-size */
 }
   
-#carreras_lista th, #carreras_lista td {
+#lista td {
     text-align: left; /* Left-align text */
     padding: 12px; /* Add padding */
+    color: black;
 }
 
-#usuarios_lista th, #usuarios_lista td {
-    text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
-}
   
-#carreras_lista, #usuarios_lista tr {
+#lista th {
     /* Add a bottom border to all table rows */
     border-bottom: 2px solid #ddd;
 }
   
-#carreras_lista tr.header, #carreras_lista tr:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color: #c1b0ca;
-}
-
-#usuarios_lista tr.header, #usuarios_lista tr:hover {
+#lista tr.header, #lista tr:hover {
     /* Add a grey background color to the table header and on hover */
     background-color: #c1b0ca;
 }
