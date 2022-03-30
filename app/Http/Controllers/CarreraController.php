@@ -10,6 +10,12 @@ use Datatables;
 
 class CarreraController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -99,7 +105,7 @@ class CarreraController extends Controller
         ]);
 
 
-        $query = DB::table('carreras')->where('nombre', $id)->update([
+        $query = DB::table('carreras')->where('id', $id)->update([
             'nombre'=>$request->input('nombre_carrera'),
             'area'=>$request->input('area'),
         ]);
@@ -118,40 +124,11 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        $query = DB::table('carreras')->where('nombre', $id)->delete();
+        $query = DB::table('carreras')->where('id', $id)->delete();
         
         return redirect('/carreras')->with('success', 'Logrado');
     }
 
-
-
-
-    //Funciones para planes de estudio
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Plan  $plan
-     * @return \Illuminate\Http\Response
-     */
-    public function createPlan(Request $request, $id)
-    {
-        $request->validate([
-            'nombre_plan'=>'required'
-        ]);
-
-
-        $query = DB::table('planes')->insert([
-            'Nombre'=>$request->input('nombre_plan'),
-            'Carrera_asociada'=>$request->input('nombre_carrera'),
-        ]);
-
-        echo 'Entré';
-
-
-        return back()->with('EXITO', 'Plan creado');
-    }
 
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -10,6 +11,11 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +24,8 @@ class UserController extends Controller
     public function index()
     {
         $data = User::orderBy('nombre')->where('nombre', '<>', 'Administrador')->get(); 
-        return view ('/usuarios', ['user'=>$data]);
+        $carreras = Carrera::orderBy('nombre')->get(); 
+        return view ('/usuarios', ['user'=>$data], ['carrera'=>$carreras]);
     }
 
     /**
@@ -39,7 +46,7 @@ class UserController extends Controller
             'nombre'=>$request->input('nombre'),
             'email'=>$request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'facultad'=>$request->input('facultad'),
+            'carrera'=>$request->input('carrera'),
             'remember_token' => Str::random(10)
         ]);
 
@@ -94,10 +101,10 @@ class UserController extends Controller
         ]);
 
 
-        $query = DB::table('users')->where('nombre', $id)->update([
+        $query = DB::table('users')->where('id', $id)->update([
             'nombre'=>$request->input('nombre'),
             'email'=>$request->input('email'),
-            'facultad'=>$request->input('facultad')
+            'carrera'=>$request->input('carrera')
         ]);
         
 
@@ -112,7 +119,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $query = DB::table('users')->where('nombre', $id)->delete();
+        $query = DB::table('users')->where('id', $id)->delete();
         
         return redirect('/usuarios')->with('success', 'Logrado');
     }

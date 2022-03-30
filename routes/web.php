@@ -23,22 +23,24 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/home', function() {
-    return view('home');
+    Route::post('crearCarrera', 'CarreraController@create');
+    Route::resource('/carreras', 'CarreraController');
+    Route::get('/carreras/{id}', 'CarreraController@show');
+
+    Route::post('/carreras/{id}/crearPlan', 'PlanController@create');
+    Route::delete('/carreras/{id}/{plan}', 'PlanController@destroy');
+    Route::put('/carreras/{id}/{plan}', 'PlanController@update');
+    Route::get('/carreras/{id}/{plan}', 'PlanController@show');
+    Route::resource('/usuarios', 'UserController');
+    Route::post('register', 'UserController@create');
+    
+    Auth::routes();
+    Route::get('/home', 'HomeController@index');
+    Route::get('/logout', 'Auth\LoginController@logout');
+    Route::post('/login', 'Auth\LoginController@login');
 });
 
-Auth::routes();
-Route::get('/home', 'HomeController@index');
-Route::get('/logout', 'Auth\LoginController@logout');
-Route::post('/login', 'Auth\LoginController@login');
 
-Route::post('crearCarrera', 'CarreraController@create');
-Route::resource('/carreras', 'CarreraController');
-Route::get('/carreras/{id}', 'CarreraController@show');
-Route::post('/carreras/{id}/crearPlan', 'CarreraController@createPlan');
-//Route::post('crearPlan', 'CarreraController@createPlan');
-
-Route::resource('/usuarios', 'UserController');
-Route::post('register', 'UserController@create');
 
 
 /*

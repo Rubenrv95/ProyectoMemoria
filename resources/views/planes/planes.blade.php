@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Planes</title>
+    @foreach($name as $n)
+    <title>Lista de Planes de {{$n['nombre']}}</title>
+    @endforeach
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
@@ -22,7 +24,7 @@
             <h1 class="mb-0 text-gray-800"> {{ $n['nombre'] }} </h1>
         @endforeach
         </div>
-        <button class="agregar_carrera" data-bs-toggle="modal" data-bs-target="#modal_crear_plan"  style="margin-bottom: 10px;">
+        <button class="agregar" data-bs-toggle="modal" data-bs-target="#modal_crear_plan"  style="margin-bottom: 10px;">
             Añadir plan de estudio                    
         </button>
 
@@ -30,9 +32,10 @@
         <table id="lista" class="table table-striped table-bordered" width="100%">
             <thead>
                 <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
-                    <th style="width: 350px">Plan </th>
-                    <th style="width: 350px">Fecha de actualización </th>
-                    <td></td>
+                    <th style="width: 50px">ID <img src="/images/arrows.png" alt="" srcset=""></th>
+                    <th style="width: 250px">Plan <img src="/images/arrows.png" alt="" srcset=""> </th>
+                    <th style="width: 250px">Fecha de actualización <img src="/images/arrows.png" alt="" srcset=""> </th>
+                    <td style="width: 150px"></td>
                 </tr>
             </thead>
             
@@ -41,26 +44,28 @@
             
             @foreach($data as $item)
                 <tr>
-                    <td style="width: 350px"> {{ $item['Nombre'] }}</td>
-                    <td style="width: 350px">{{ $item['updated_at'] }}</td>
-                    <td style="width: 100px">
-                        <button type="button" id="mod">
-                        <button type="button" id="del">
+                    <td> {{ $item['id'] }}</td>
+                    <td > {{ $item['Nombre'] }}</td>
+                    <td >{{ $item['updated_at'] }}</td>
+                    <td>
+                        <a href="/carreras/{{$id}}/{{ $item['id'] }}"><button type="button" id="info" > </button></a>
+                        <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit">
+                        <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_plan" class="delete">
                     </td>
-                    
-                </tr>
+                </tr>    
             @endforeach
             </tbody>
             
         </table> 
 
 
+        <!--Modal agregar plan de estudio -->
         <div class="container">
             <div class="row">
                 <div class ="col-md-12">
                     <div tabIndex="-1" class="modal fade" id="modal_crear_plan" aria-hidden="true"> 
                         <div class="modal-dialog modal-md">
-                            <form action="/carreras/{{$id}}/crearPlan" method="POST" class="form-group">
+                            <form action="/carreras/{{$id}}" method="POST" class="form-group">
                             @csrf
                             @method('POST')
                                 <div class="modal-content" style="width: 600px">
@@ -94,6 +99,39 @@
             </div>
         </div>
 
+        <!-- Modal eliminar plan   -->
+        <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    <div class="modal fade" id="modal_eliminar_plan" aria-hidden="true">
+                        <div class="modal-dialog modal-md" >
+                            <form method = "POST" action = "/carreras/{{$id}}" class="form-group" id = "deleteForm">
+
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE')}}
+
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h1 class="justify-content-center" style="margin: auto"> Eliminar Plan de Estudio</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" name="method"> 
+                                        <p style="font-size: 18">¿Está seguro de que desea eliminar éste plan de estudio?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="button-delete">Eliminar</button>
+                                        <button class="button-cancel" data-bs-dismiss="modal" type="button"> Cancelar</button>
+                                    </div> 
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     
     </div>
 
@@ -107,27 +145,6 @@
                 
             });
 
-            //modificar
-            table.on('click', '.edit', function() {
-
-                $tr = $(this).closest('tr');
-                if ($($tr).hasClass('child')) {
-                    $tr = $tr.prev('.parent');
-                }
-
-
-                var data = table.row($tr).data();
-                console.log(data);
-
-                $('#nombre_carrera').val(data[0]);
-                $('#area').val(data[1]);
-
-                $('#editForm').attr('action', '/carreras/'+data[0]);
-                $('#modal_modificar_carrera').modal('show');
-
-            });
-
-
             //eliminar
             table.on('click', '.delete', function() {
 
@@ -140,8 +157,8 @@
                 console.log(data);
 
 
-                $('#deleteForm').attr('action', '/carreras/'+data[0]);
-                $('#modal_eliminar_carrera').modal('show');
+                $('#deleteForm').attr('action', '/carreras/{{$id}}/'+data[0]);
+                $('#modal_eliminar_plan').modal('show');
 
             }  );
             

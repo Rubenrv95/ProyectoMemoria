@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Carrera;
+use App\Models\Plan;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/home');
+        $planes = DB::table('planes')->get();
+        $carreras = DB::table('carreras')->get();
+        $usuarios = DB::table('users')->where('nombre', '<>', 'Administrador')->get();
+
+        $cant_1 = $carreras->count();
+        $cant_2 = $planes->count();
+        $cant_3 = $usuarios->count();
+
+        return view('/home')->with('planes', $cant_2)->with('carreras', $cant_1)->with('usuarios', $cant_3);
     }
 }

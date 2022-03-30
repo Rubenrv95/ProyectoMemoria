@@ -58,7 +58,7 @@
                                             <h6 style="color: black">{{Auth::user()->nombre}}</h6>      
                                             <h4 style="color: black; font-weight: bold">Correo Electrónico</h4>
                                             <h6 style="color: black">{{Auth::user()->email}}</h6>      
-                                            <h4 style="color: black; font-weight: bold">Facultad</h4>
+                                            <h4 style="color: black; font-weight: bold">Carrera</h4>
                                             <h6 style="color: black">{{Auth::user()->facultad}}</h6>               
                                         </div>
                                         <div class="modal-footer">

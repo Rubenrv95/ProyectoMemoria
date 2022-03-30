@@ -16,16 +16,17 @@
                         <h1 class="mb-0 text-gray-800">Lista de Usuarios</h1>
                 </div>
 
-                <button class="agregar_carrera" href="#" data-bs-toggle="modal" data-bs-target="#modal_user" style="font-size: 16; margin-bottom: 10px;">
+                <button class="agregar" href="#" data-bs-toggle="modal" data-bs-target="#modal_user" style="font-size: 16; margin-bottom: 10px;">
                 Agregar usuario
                 </button>
 
                 <table id="lista" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
-                                <th>Nombre de usuario </th>
-                                <th>Correo Electrónico </th>
-                                <th>Facultad</th>
+                                <th>ID <img src="/images/arrows.png" alt="" srcset=""></th>
+                                <th>Nombre de usuario <img src="/images/arrows.png" alt="" srcset=""></th>
+                                <th>Correo Electrónico <img src="/images/arrows.png" alt="" srcset=""></th>
+                                <th>Carrera <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th></th>
                                 </tr>
                         </thead>
@@ -34,9 +35,10 @@
                         
                                 @foreach($user as $u)
                                 <tr>
+                                <td> {{$u['id']}}</td>
                                 <td> {{$u['nombre']}}</td>
                                 <td>{{$u['email']}}</td>
-                                <td>{{$u['facultad']}}</td>
+                                <td>{{$u['carrera']}}</td>
                                 <td>
                                         <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit"> </button>
                                         <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_carrera" class="delete"> </button>
@@ -49,6 +51,85 @@
                 </table> 
 
         </div>
+
+
+
+        <!-- Modal agregar usuario-->
+        <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    <div tabIndex="-1" class="modal fade" id="modal_user" aria-hidden="true">
+                        <div class="modal-dialog modal-md" >
+                            <form action="register" method="POST" class="form-group">
+                                @csrf
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h1 class="justify-content-center" style="margin: auto"> Agregar usuario</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group" style="margin: auto;">
+                                            <label style="font-size: 20">Nombre Completo</label>
+                                            <input type="name" class="form-control form-control-lg" name="nombre"  style="width: 470px; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" />
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>Debe ingresar un nombre para el usuario</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group" style="margin: auto;">
+                                            <label style="font-size: 20" >Correo Electrónico</label>
+                                            <input type="email" class="form-control form-control-lg" name="email" style="width: 470px; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" />
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>Debe ingresar el correo del usuario</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group" style="margin: auto">
+                                            <label style="font-size: 20">Carrera</label>
+                                            <select class="form-select form-select-lg" name="carrera"  aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                                    @foreach ($carrera as $c)
+                                                    <option value="{{$c['nombre']}}">{{$c['nombre']}}</option>
+                                                    @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" style="margin: auto;">
+                                            <label style="font-size: 20">Contraseña</label>
+                                            <input type="password" class="form-control form-control-lg" name="password" style="width: 470px; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese la contraseña del usuario"/>
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>Ingrese una contraseña válida (al menos 6 caracteres)</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group" style="margin: auto;">
+                                            <label style="font-size: 20">Confirmar contraseña</label>
+                                            <input type="password" class="form-control form-control-lg" name="password_confirmation" id = "password_confirmation" style="width: 470px; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese nuevamente la contraseña del usuario"/>
+                                            @error('password_confirmation')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>La entrada no coincide con la contraseña ingresada</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="button-accept" type="submit">Guardar</button>
+                                        <button class="button-cancel" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
 
 
         <!-- Modal modificar usuario   -->
@@ -91,12 +172,11 @@
                                         </div>
 
                                         <div class="form-group" style="margin: auto">
-                                            <label style="font-size: 20">Facultad</label>
-                                            <select class="form-select form-select-lg" name="facultad" id = "facultad" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
-                                                    <option value="Talca">Talca</option>
-                                                    <option value="Los Niches">Los Niches</option>
-                                                    <option value="Linares">Linares</option>
-                                                    <option value="Santiago">Santiago</option>
+                                            <label style="font-size: 20">Carrera</label>
+                                            <select class="form-select form-select-lg" name="carrera" id = "carrera" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                                    @foreach ($carrera as $c)
+                                                    <option value="{{$c['nombre']}}">{{$c['nombre']}}</option>
+                                                    @endforeach
                                             </select>
                                         </div>
 
@@ -175,7 +255,7 @@
 
                 $('#nombre').val(data[0]);
                 $('#email').val(data[1]);
-                $('#facultad').val(data[2]);
+                $('#carrera').val(data[2]);
 
                 $('#editForm').attr('action', '/usuarios/'+data[0]);
                 $('#modal_modificar_usuario').modal('show');
@@ -207,5 +287,3 @@
 @endsection
 
 </html>
-
-@include('modals.crearUsuario')

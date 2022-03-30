@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Datatables;
@@ -10,6 +11,11 @@ use Datatables;
 
 class PlanController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +23,7 @@ class PlanController extends Controller
      */
     public function index($id)
     {
-        return 'HOLA MUNDO';
+        
     }
 
     /**
@@ -36,7 +42,6 @@ class PlanController extends Controller
             'Nombre'=>$request->input('nombre_plan'),
             'Carrera_asociada'=>$request->input('nombre_carrera'),
         ]);
-
 
         echo 'Entré';
 
@@ -61,9 +66,14 @@ class PlanController extends Controller
      * @param  \App\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $plan)
     {
-        
+
+        $query = DB::table('planes')->where('id', $plan)->get();
+        $carrera = DB::table('carreras')->where('id', $id)->get(); 
+        $query = json_decode($query, true);
+        $carrera = json_decode($carrera, true);
+        return view('editar')->with('plan', $query)->with('carrera', $carrera);
     }
 
     /**
@@ -84,21 +94,20 @@ class PlanController extends Controller
      * @param  \App\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plan $plan)
+    public function update($id, $plan, Request $request)
     {
         $request->validate([
-            'nombre_carrera'=>'required'
+            'nombre_plan'=>'required'
 
         ]);
 
 
-        $query = DB::table('carreras')->where('Nombre de la carrera', $id)->update([
-            'Nombre de la carrera'=>$request->input('nombre_carrera'),
-            'Area profesional'=>$request->input('area'),
+        $query = DB::table('planes')->where('id', $plan)->update([
+            'Nombre'=>$request->input('nombre_plan'),
         ]);
         
 
-        return redirect('/carreras')->with('success', 'Data actualizada');
+        return back();
     }
 
     /**
@@ -107,10 +116,10 @@ class PlanController extends Controller
      * @param  \App\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plan $plan)
+    public function destroy($id, $plan)
     {
-        $query = DB::table('carreras')->where('Nombre de la carrera', $id)->delete();
-        
-        return redirect('/carreras')->with('success', 'Logrado');
+        $query = DB::table('planes')->where('id', $plan)->delete();
+
+        return back();
     }
 }
