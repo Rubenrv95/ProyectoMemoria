@@ -32,8 +32,9 @@
                 </h1> 
             </div>
 
-    <button type="button" class="boton_gestionar" data-bs-toggle="modal" data-bs-target="#modal_comp">Competencias</button>
-    <button class="boton_gestionar">Aprendizajes</button>
+            <a href="/carreras/{{$c['id']}}/{{$p['id']}}/competencias"><button type="button" class="boton_gestionar">Competencias</button></a>
+            <a href=""> <button type="button" class="boton_gestionar">Aprendizajes</button></a>
+   
     </div>
 
 
@@ -65,8 +66,8 @@
 
                                     </div>
                                     <div class="modal-footer">
-                                                <button class="button-accept" type="submit">Guardar</button>
-                                                <button class="button-cancel" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                                <button class="btn btn-success" type="submit">Guardar</button>
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
                                     </div> 
                                 
                                 </div>
@@ -103,13 +104,14 @@
                                                     <option value="Arte y Arquitectura">Arte y Arquitectura</option>
                                                     <option value="Carreras Técnicas">Carreras Técnicas</option>
                                                 </select>     
+                                                <hr class="sidebar-divider">
                                                 <button class="agregar" style="margin-top: 10px; text-align: center;">Agregar</button>
                                             </div>
                                     </div>
 
                                     <div class="modal-footer">
-                                                <button class="button-accept" type="submit">Guardar</button>
-                                                <button class="button-cancel" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                                <button class="btn btn-success" type="submit">Guardar</button>
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
                                     </div> 
                                 
                                 </div>
@@ -124,7 +126,7 @@
     <div class="container">
             <div class="row">
                 <div class ="col-md-12">
-                    <div tabIndex="-1" class="modal fade" id="modal_editar_plan" aria-hidden="true"> 
+                    <div tabIndex="-1" class="modal fade" id="modal_apren" aria-hidden="true"> 
                         <div class="modal-dialog modal-md">
                             <form action="/carreras/{{$c['id']}}" method="PUT" class="form-group">
                             @csrf
@@ -137,15 +139,22 @@
                                     <div class="modal-body">
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
-                                                <label style="font-size: 20">Nombre del plan</label>
-                                                <input class="form-control form-control-lg" name="nombre_plan" style="width: 550px"  placeholder="Ingrese el nombre del plan" value="{{$p['Nombre']}}"/>
-                                                <span style="color: red">@error('nombre_plan')  Debe ingresar un nombre para el plan  @enderror</span>          
+                                                <label style="font-size: 20">Descripción</label>
+                                                <input class="form-control form-control-lg" name="desc_apren" type="text" style="width: 550px;"  placeholder="Ingrese descripción del aprendizaje" value="" minlength="0" maxlength="200" size="200"/>
+                                                <span style="color: red">@error('desc_apren')  Debe ingresar un nombre para el plan  @enderror</span>   
+                                                <label style="font-size: 20; margin-top: 10px">Competencia asociada</label>  
+                                                <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:550px;">
+                                                    <option selected value="Administración y Comercio">Competencia 1</option>
+                                                    <option value="Arte y Arquitectura">Arte y Arquitectura</option>
+                                                    <option value="Carreras Técnicas">Carreras Técnicas</option>
+                                                </select>     
+                                                <hr class="sidebar-divider">
+                                                <button class="agregar" style="margin-top: 10px; text-align: center;">Agregar</button>
                                             </div>
-
                                     </div>
                                     <div class="modal-footer">
-                                                <button class="button-accept" type="submit">Guardar</button>
-                                                <button class="button-cancel" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                                <button class="btn btn-success" type="submit">Guardar</button>
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
                                     </div> 
                                 
                                 </div>

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listado de carreras</title>
+        <title>Aprendizajes</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
 <body >
         <div class="container-fluid">   
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="mb-0 text-gray-800">Lista de Carreras</h1>
+                        <h1 class="mb-0 text-gray-800">Lista de Aprendizajes</h1>
                 </div>
 
                 <button class="agregar" data-bs-toggle="modal" data-bs-target="#modal_crear_carrera" style="margin-bottom: 10px;">
@@ -34,19 +34,19 @@
                         
                         <tbody>
                         
-                                @foreach($carrera as $item)
+               
                                 <tr>
-                                <td>{{$item['id']}}</td>
-                                <td> {{$item['nombre']}}</td>
-                                <td>{{$item['area']}}</td>
+                                <td></td>
+                                <td> </td>
+                                <td></td>
                                 <td>
-                                        <a href="/carreras/{{$item['id']}}"><button type="button" id="info" > </button></a>
+                                        <a href=""><button type="button" id="info" > </button></a>
                                         <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit"> </button>
                                         <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_carrera" class="delete"> </button>
                                 </td>
                                 
                                 </tr>
-                                @endforeach
+                                
                         
                         </tbody>
                 </table> 

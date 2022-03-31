@@ -1,11 +1,4 @@
 
-body, html{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #f6f6f6"
-}
-
-
-
 header {
     position: relative;
     margin: 0;
@@ -22,7 +15,7 @@ header {
 
 
 .button-login{
-    background-color: #2b0237 ; 
+    background-color: #333333 ; 
     color: white;
     padding: 5px;
     border: 2px solid black;
@@ -34,138 +27,71 @@ header {
 }
 
 .button-login:hover {
-    background-color: #b885e7;
+    background-color: #5f5f5f ;
 }
 
 .button-login:active {
-    background-color: #12041f;
-}
-
-
-.button-accept {
-    background-color: rgb(3, 153, 3); 
-    color: white; 
-    border: 1px solid black;
-    font-size: 18;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 25%;
-}
-
-.button-accept:hover {
-    background-color: #006b00;
-
-}
-
-.button-accept:active {
-    background-color: #004400;
-
-}
-
-.button-delete {
-    background-color: rgb(218, 63, 63); 
-    color: white; 
-    border: 1px solid black;
-    font-size: 18;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 25%;
-}
-
-.button-delete:hover {
-    background-color: #880707;
-
-}
-
-.button-delete:active {
-    background-color: #470303;
-
-}
-
-
-.button-cancel {
-    border: 1px solid black;
-    font-size: 18;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 25%;
-    background-color: rgb(221, 221, 221); 
-}
-
-.button-cancel:hover {
-    background-color: rgb(117, 117, 117); 
-}
-
-.button-cancel:active {
-    background-color: rgb(68, 68, 68); 
-}
-
-.navbar {
-    background: rgb(79,43,105);
-    background: linear-gradient(94deg, rgba(79,43,105,1) 25%, rgba(111,94,124,1) 100%, rgba(117,96,133,1) 100%); 
-}
-
-.navbar-expand-lg {
-    color:white;
-}
-
-
-.navbar-light {
-    color:white;
-}
-
-.bg-light {
-    color:white;
+    background-color: rgb(150, 150, 150) ;
 }
 
 .agregar {
     background-image: url('/images/add_icon.png');
     background-repeat: no-repeat; 
-    background-color: #8f6ea3;
+    background-color: #333333;
+    border-color: #333333;
     color: white;
     margin-left: auto;   
     height: 28px;
     text-align: left;
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 0px 30px; /* Some padding */
     cursor: pointer; /* Mouse pointer on hover */
 }
 
 .agregar:hover {
-    background-color: #5d486b;
-    border-radius: 8px;
+    background-color: #636363;
+    border-color: rgb(87, 87, 87);
+    border-radius: 6px;
 }
 
+.agregar:focus, .agregar.focus  {
+    background-color: #525252;
+    border-color: rgb(87, 87, 87);
+    border-radius: 6px;
+    box-shadow: 0 0 0 0.2rem #999999;;
+}
+
+
 .agregar:active {
-    background-color: #382c41;
-    border-radius: 8px;
+    background-color: #999999;
+    border-radius: 6px;
 }
 
 .boton_gestionar {
     background-repeat: no-repeat; 
-    background-color: #8f6ea3;
+    background-color: #333333;
     color: white;
     margin-left: auto;   
     height: 28px;
     text-align: left;
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 0px 30px; /* Some padding */
     cursor: pointer; /* Mouse pointer on hover */
 }
 
 .boton_gestionar:hover {
-    background-color: #5d486b;
+    background-color: #525252;
     border-radius: 8px;
 }
 
 .boton_gestionar:active {
-    background-color: #382c41;
+    background-color: #999999;
     border-radius: 8px;
 }
 
 .nav-link:hover{
 
-    background-color: rgb(57, 42, 73);
+    background-color: #616161;
     border-radius: 8px;
 }
 
@@ -265,9 +191,10 @@ header {
     /* Add a bottom border to all table rows */
     border-bottom: 2px solid #ddd;
     cursor: pointer;
+    background: #333333;
 }
   
 #lista tr.header, #lista tr:hover {
     /* Add a grey background color to the table header and on hover */
-    background-color: #c1b0ca;
+    background-color: #929292;
 }

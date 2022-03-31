@@ -6,6 +6,8 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\CompetenciaController;
+use App\Http\Controllers\Auth\AprendizajeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/home', function() {
     Route::get('/carreras/{id}/{plan}', 'PlanController@show');
     Route::resource('/usuarios', 'UserController');
     Route::post('register', 'UserController@create');
-    
+
+    Route::get('/carreras/{id}/{plan}/competencias', 'CompetenciaController@index');
+    Route::get('/carreras/{id}/{plan}/aprendizajes', 'AprendizajeController@index');
+
+
     Auth::routes();
     Route::get('/home', 'HomeController@index');
     Route::get('/logout', 'Auth\LoginController@logout');

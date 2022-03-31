@@ -31,11 +31,11 @@
 
         <table id="lista" class="table table-striped table-bordered" width="100%">
             <thead>
-                <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
+                <tr style="font-weight: bold; color: white">
                     <th style="width: 50px">ID <img src="/images/arrows.png" alt="" srcset=""></th>
                     <th style="width: 250px">Plan <img src="/images/arrows.png" alt="" srcset=""> </th>
                     <th style="width: 250px">Fecha de actualización <img src="/images/arrows.png" alt="" srcset=""> </th>
-                    <td style="width: 150px"></td>
+                    <th style="width: 150px"></th>
                 </tr>
             </thead>
             
@@ -48,8 +48,7 @@
                     <td > {{ $item['Nombre'] }}</td>
                     <td >{{ $item['updated_at'] }}</td>
                     <td>
-                        <a href="/carreras/{{$id}}/{{ $item['id'] }}"><button type="button" id="info" > </button></a>
-                        <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit">
+                        <a href="/carreras/{{$id}}/{{ $item['id'] }}"><button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit"></button></a>
                         <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_plan" class="delete">
                     </td>
                 </tr>    
@@ -87,8 +86,8 @@
 
                                     </div>
                                     <div class="modal-footer">
-                                                <button class="button-accept" type="submit">Guardar</button>
-                                                <button class="button-cancel" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                                <button class="btn btn-success" type="submit">Guardar</button>
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
                                     </div> 
                                 
                                 </div>
@@ -120,8 +119,8 @@
                                         <p style="font-size: 18">¿Está seguro de que desea eliminar éste plan de estudio?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="button-delete">Eliminar</button>
-                                        <button class="button-cancel" data-bs-dismiss="modal" type="button"> Cancelar</button>
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button"> Cancelar</button>
                                     </div> 
                                 </div>
 

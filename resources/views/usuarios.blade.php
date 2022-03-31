@@ -22,7 +22,7 @@
 
                 <table id="lista" class="table table-striped table-bordered" width="100%">
                         <thead>
-                                <tr style="font-weight: bold; background-color: #8f6ea3; color: white">
+                                <tr style="font-weight: bold; color: white">
                                 <th>ID <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Nombre de usuario <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Correo Electrónico <img src="/images/arrows.png" alt="" srcset=""></th>
@@ -120,8 +120,8 @@
                                         
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="button-accept" type="submit">Guardar</button>
-                                        <button class="button-cancel" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                        <button class="btn btn-success" type="submit">Guardar</button>
+                                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
                                     </div> 
                                 </div>
                             </form>
@@ -182,8 +182,8 @@
 
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="button-accept">Guardar</button>
-                                        <button class="button-cancel" data-bs-dismiss="modal" type="button"> Cancelar</button>
+                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button"> Cancelar</button>
                                     </div> 
                                 </div>
                             </form>
@@ -217,8 +217,8 @@
                                         <p style="font-size: 18">¿Está seguro de que desea eliminar a éste usuario?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="button-delete">Eliminar</button>
-                                        <button class="button-cancel" data-bs-dismiss="modal" type="button"> Cancelar</button>
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button"> Cancelar</button>
                                     </div> 
                                 </div>
 
