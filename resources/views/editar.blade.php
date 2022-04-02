@@ -32,8 +32,7 @@
                 </h1> 
             </div>
 
-            <a href="/carreras/{{$c['id']}}/{{$p['id']}}/competencias"><button type="button" class="boton_gestionar">Competencias</button></a>
-            <a href=""> <button type="button" class="boton_gestionar">Aprendizajes</button></a>
+            <a href="/carreras/{{$c['id']}}/{{$p['id']}}/competencias"><button type="button" class="boton_gestionar">Competencias y Aprendizajes</button></a>
    
     </div>
 

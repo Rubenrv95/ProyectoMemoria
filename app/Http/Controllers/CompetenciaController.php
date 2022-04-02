@@ -11,14 +11,27 @@ use Datatables;
 
 class CompetenciaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id_carrera, $id_plan)
     {
-        return view('planes.competencias');
+
+        $plan = DB::table('planes')->where('id', $id_plan)->get();
+        $carrera = DB::table('carreras')->where('id', $id_carrera)->get(); 
+        $plan = json_decode($plan, true);
+        $carrera = json_decode($carrera, true);
+        $competencia = DB::table('competencias')->where('refPlan', $id_plan)->get();
+        $competencia = json_decode($competencia, true);
+        $aprendizaje = DB::table('aprendizajes')->join('competencias', 'aprendizajes.refCompetencia', '=', 'competencias.id')->get();
+        return view('planes.competencias')->with('plan', $plan)->with('carrera', $carrera)->with('competencia', $competencia)->with('aprendizaje', $aprendizaje);
     }
 
     /**
@@ -26,9 +39,20 @@ class CompetenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id_carrera, $id_plan, Request $request)
     {
-        //
+        $request->validate([
+            'desc_competencia'=>'required'
+        ]);
+
+
+        $query = DB::table('competencias')->insert([
+            'Descripcion'=>$request->input('desc_competencia'),
+            'Tipo'=>$request->input('tipo'),
+            'refPlan'=>$id_plan,
+        ]);
+
+        return back();
     }
 
     /**
@@ -71,9 +95,19 @@ class CompetenciaController extends Controller
      * @param  \App\Models\Competencia  $competencia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Competencia $competencia)
+    public function update($id_carrera, $id_plan, Request $request, $id_comp)
     {
-        //
+        $request->validate([
+            'desc_competencia'=>'required'
+        ]);
+
+
+        $query = DB::table('competencias')->where('id', $id_comp)->update([
+            'Descripcion'=>$request->input('desc_competencia'),
+            'Tipo'=>$request->input('tipo'),
+        ]);
+
+        return back();
     }
 
     /**
@@ -82,8 +116,10 @@ class CompetenciaController extends Controller
      * @param  \App\Models\Competencia  $competencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Competencia $competencia)
+    public function destroy($id_carrera, $id_plan, $id_comp)
     {
-        //
+        $query = DB::table('competencias')->where('id', $id_comp)->delete();
+        
+        return back();
     }
 }

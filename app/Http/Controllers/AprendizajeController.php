@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AprendizajeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,13 @@ class AprendizajeController extends Controller
      */
     public function index()
     {
-        return view('aprendizajes');
+        $plan = DB::table('planes')->where('id', $id_plan)->get();
+        $carrera = DB::table('carreras')->where('id', $id_carrera)->get(); 
+        $plan = json_decode($plan, true);
+        $carrera = json_decode($carrera, true);
+        $competencia = DB::table('aprendizajes')->where('refCompetencia', $id_plan)->get();
+        $competencia = json_decode($competencia, true);
+        return view('planes.aprendizajes')->with('plan', $plan)->with('carrera', $carrera)->with('competencia', $competencia);
     }
 
     /**

@@ -63,7 +63,7 @@
                                             <h6 style="color: black">{{Auth::user()->facultad}}</h6>               
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="button-cancel" data-bs-dismiss="modal" type="button">Cerrar</button>
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cerrar</button>
                                         </div> 
                                         
                                     </div>
@@ -89,8 +89,8 @@
                                             ¿Está seguro que desea cerrar sesión?          
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="/logout"><button class="button-delete" style="width: 120%;">Cerrar sesión</button></a>
-                                            <button class="button-cancel" data-bs-dismiss="modal" type="button" style="margin-left: 25px">Cancelar</button>
+                                            <a href="/logout"><button class="btn btn-danger" style="width: 120%;">Cerrar sesión</button></a>
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button" style="margin-left: 25px">Cancelar</button>
                                         </div> 
                                         
                                     </div>

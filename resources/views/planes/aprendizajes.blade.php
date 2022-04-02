@@ -15,11 +15,11 @@
 <body >
         <div class="container-fluid">   
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="mb-0 text-gray-800">Lista de Aprendizajes</h1>
+                        <h1 class="mb-0 text-gray-800">Aprendizajes</h1>
                 </div>
 
                 <button class="agregar" data-bs-toggle="modal" data-bs-target="#modal_crear_carrera" style="margin-bottom: 10px;">
-                        Agregar carrera                    
+                        Agregar aprendizaje                    
                 </button>
 
                 <table id="lista" class="table table-striped table-bordered" width="100%">

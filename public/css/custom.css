@@ -69,7 +69,9 @@ header {
 
 .boton_gestionar {
     background-repeat: no-repeat; 
+    background-repeat: no-repeat; 
     background-color: #333333;
+    border-color: #333333;
     color: white;
     margin-left: auto;   
     height: 28px;
@@ -80,8 +82,16 @@ header {
 }
 
 .boton_gestionar:hover {
+    background-color: #636363;
+    border-color: rgb(87, 87, 87);
+    border-radius: 6px;
+}
+
+.boton_gestionar:focus, .boton_gestionar.focus {
     background-color: #525252;
-    border-radius: 8px;
+    border-color: rgb(87, 87, 87);
+    border-radius: 6px;
+    box-shadow: 0 0 0 0.2rem #999999;;
 }
 
 .boton_gestionar:active {
@@ -195,6 +205,32 @@ header {
 }
   
 #lista tr.header, #lista tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #929292;
+}
+
+#lista2 {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 2px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+  
+#lista2 td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+    color: black;
+}
+
+  
+#lista2 th {
+    /* Add a bottom border to all table rows */
+    border-bottom: 2px solid #ddd;
+    cursor: pointer;
+    background: #333333;
+}
+  
+#lista2 tr.header, #lista2 tr:hover {
     /* Add a grey background color to the table header and on hover */
     background-color: #929292;
 }

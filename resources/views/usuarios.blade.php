@@ -27,7 +27,7 @@
                                 <th>Nombre de usuario <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Correo Electrónico <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Carrera <img src="/images/arrows.png" alt="" srcset=""></th>
-                                <th></th>
+                                <th style="width: 150px"></th>
                                 </tr>
                         </thead>
                         

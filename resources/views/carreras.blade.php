@@ -28,7 +28,7 @@
                                 <th>ID <img src="/images/arrows.png" alt="" srcset=""> </th>
                                 <th>Carrera <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Área profesional <img src="/images/arrows.png" alt="" srcset=""></th>
-                                <th></th>
+                                <th style="width: 150px"></th>
                                 </tr>
                         </thead>
                         

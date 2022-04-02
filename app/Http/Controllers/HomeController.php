@@ -35,6 +35,6 @@ class HomeController extends Controller
         $cant_2 = $planes->count();
         $cant_3 = $usuarios->count();
 
-        return view('/home')->with('planes', $cant_2)->with('carreras', $cant_1)->with('usuarios', $cant_3);
+        return view('home')->with('planes', $cant_2)->with('carreras', $cant_1)->with('usuarios', $cant_3);
     }
 }

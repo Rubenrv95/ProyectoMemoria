@@ -24,8 +24,11 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/home', function() {
-    Route::post('crearCarrera', 'CarreraController@create');
+Route::middleware(['auth:sanctum', 'verified'])->get('/inicio', function() {
+    
+});
+
+Route::post('crearCarrera', 'CarreraController@create');
     Route::resource('/carreras', 'CarreraController');
     Route::get('/carreras/{id}', 'CarreraController@show');
 
@@ -37,14 +40,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/home', function() {
     Route::post('register', 'UserController@create');
 
     Route::get('/carreras/{id}/{plan}/competencias', 'CompetenciaController@index');
-    Route::get('/carreras/{id}/{plan}/aprendizajes', 'AprendizajeController@index');
+    Route::post('/carreras/{id}/{plan}/competencias', 'CompetenciaController@create');
+    Route::put('/carreras/{id}/{plan}/competencias/{competencia}', 'CompetenciaController@update');
+    Route::delete('/carreras/{id}/{plan}/competencias/{competencia}', 'CompetenciaController@destroy');
 
+    Route::get('/carreras/{id}/{plan}/aprendizajes', 'AprendizajeController@index');
 
     Auth::routes();
     Route::get('/home', 'HomeController@index');
     Route::get('/logout', 'Auth\LoginController@logout');
     Route::post('/login', 'Auth\LoginController@login');
-});
+
 
 
 
