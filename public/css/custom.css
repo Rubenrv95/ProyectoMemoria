@@ -183,6 +183,15 @@ header {
     border-radius: 10px;
 }
 
+.cursor-grab {
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+  
+.tasks {
+    min-height: 450px;
+}
+
 #lista {
     border-collapse: collapse; /* Collapse borders */
     width: 100%; /* Full-width */

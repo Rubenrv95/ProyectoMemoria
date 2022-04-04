@@ -28,9 +28,6 @@
                                                 Usuarios Registrados</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$usuarios}}</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -45,9 +42,6 @@
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Usuarios en línea</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -64,9 +58,7 @@
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$carreras}}</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -81,9 +73,6 @@
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Planes totales</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$planes}}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

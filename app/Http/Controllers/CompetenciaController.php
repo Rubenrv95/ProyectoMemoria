@@ -30,7 +30,8 @@ class CompetenciaController extends Controller
         $carrera = json_decode($carrera, true);
         $competencia = DB::table('competencias')->where('refPlan', $id_plan)->get();
         $competencia = json_decode($competencia, true);
-        $aprendizaje = DB::table('aprendizajes')->join('competencias', 'aprendizajes.refCompetencia', '=', 'competencias.id')->get();
+        $aprendizaje = DB::table('aprendizajes')->join('competencias', 'aprendizajes.refCompetencia', '=', 'competencias.id')->select('competencias.Descripcion', 'aprendizajes.*')->get();
+        $aprendizaje = json_decode($aprendizaje, true);
         return view('planes.competencias')->with('plan', $plan)->with('carrera', $carrera)->with('competencia', $competencia)->with('aprendizaje', $aprendizaje);
     }
 

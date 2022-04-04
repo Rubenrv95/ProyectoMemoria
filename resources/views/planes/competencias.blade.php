@@ -52,7 +52,6 @@
                                 <td>{{$comp['Descripcion']}}</td>
                                 <td>{{$comp['Tipo']}}</td>
                                 <td>
-                                        <a href=""><button type="button" id="info" > </button></a>
                                         <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_competencia" class="edit"> </button>
                                         <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_competencia" class="delete"> </button>
                                 </td>
@@ -82,19 +81,19 @@
                         </thead>
                         
                         <tbody>
-                        
+                            @foreach ($aprendizaje as $a)   
                                 <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$a['id']}}</td>
+                                <td>{{$a['Descripcion_aprendizaje']}}</td>
+                                <td>{{$a['Descripcion']}}</td>
                                 <td>
-                                        <a href=""><button type="button" id="info" > </button></a>
-                                        <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_aprendizaje" class="edit"> </button>
-                                        <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_aprendizaje" class="delete"> </button>
+                                        <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_aprendizaje" class="edit2"> </button>
+                                        <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_aprendizaje" class="delete2"> </button>
                                 </td>
                                 
                                 </tr>
-                        
+                            @endforeach   
+
                         </tbody>
                 </table> 
 
@@ -241,7 +240,7 @@
                 <div class ="col-md-12">
                     <div tabIndex="-1"  class="modal fade" id="modal_crear_aprendizaje" aria-hidden="true">
                         <div class="modal-dialog modal-md" >
-                            <form action="crearCompetencia" method="POST" class="form-group">
+                            <form action="/carreras/{{$c['id']}}/{{$p['id']}}/competencias/aprendizajes" method="POST" class="form-group">
                             @csrf
                                 <div class="modal-content">
 
@@ -252,16 +251,16 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción de la competencia</label>
-                                                <input class="form-control form-control-lg" name="nombre_competencia" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
-                                                <span style="color: red">@error('nombre_competencia')  Debe ingresar una descripción para la competencia  @enderror</span>
+                                                <input class="form-control form-control-lg" name="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
+                                                <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
-                                                <label style="font-size: 20">Tipo de Competencia</label>
-                                                <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
-                                                    <option selected value="Carrera">Carrera</option>
-                                                    <option value="Plan Común">Plan Común</option>
-                                                    <option value="Idiomas">Idiomas</option>
+                                                <label style="font-size: 20">Competencia asociada</label>
+                                                <select class="form-select form-select-lg" name="refComp" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                                @foreach ($competencia as $comp)   
+                                                    <option selected value="{{$comp['id']}}">{{$comp['Descripcion']}}</option>
+                                                @endforeach
                                                 </select>
                                             </div>
                                     </div>
@@ -286,7 +285,7 @@
                     <div class="modal fade" id="modal_modificar_aprendizaje" aria-hidden="true">
                         <div class="modal-dialog modal-md" >
 
-                            <form method = "post" action = "/competencias" class="form-group" id = "editForm">
+                            <form method = "post" action = "/competencias" class="form-group" id = "editForm2">
 
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
@@ -300,16 +299,16 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción de la competencia</label>
-                                                <input class="form-control form-control-lg" name="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
-                                                <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para la competencia  @enderror</span>
+                                                <input class="form-control form-control-lg" name="desc_aprendizaje" id="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
+                                                <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Tipo de Competencia</label>
-                                                <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
-                                                    <option selected value="Carrera">Carrera</option>
-                                                    <option value="Plan Común">Plan Común</option>
-                                                    <option value="Idiomas">Idiomas</option>
+                                                <select class="form-select form-select-lg" name="refComp" id="refComp" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18" placeholder="Seleccione una competencia">
+                                                    @foreach ($competencia as $comp)   
+                                                        <option selected value="{{$comp['id']}}">{{$comp['Descripcion']}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                     </div>
@@ -334,7 +333,7 @@
                 <div class ="col-md-12">
                     <div class="modal fade" id="modal_eliminar_aprendizaje" aria-hidden="true">
                         <div class="modal-dialog modal-md" >
-                            <form method = "post" action = "/competencias" class="form-group" id = "deleteForm">
+                            <form method = "post" action = "/competencias" class="form-group" id = "deleteForm2">
 
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE')}}
@@ -379,6 +378,10 @@
                 "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
             });
 
+
+
+            //TABLA DE COMPETENCIAS
+
             //modificar
             table.on('click', '.edit', function() {
 
@@ -416,7 +419,48 @@
                 $('#modal_eliminar_competencia').modal('show');
 
             }  );
+
+
+            //TABLA DE APRENDIZAJES
             
+
+            //modificar
+            table2.on('click', '.edit2', function() {
+
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+
+                var data = table2.row($tr).data();
+                console.log(data);
+
+                $('#desc_aprendizaje').val(data[1]);
+                //$('#refComp').val(data[2]);
+
+                $('#editForm2').attr('action', '/carreras/{{$c['id']}}/{{$p['id']}}/competencias/aprendizajes/'+data[0]);
+                $('#modal_modificar_aprendizaje').modal('show');
+
+            });
+
+
+            //eliminar
+            table2.on('click', '.delete2', function() {
+
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+                var data = table2.row($tr).data();
+                console.log(data);
+
+
+                $('#deleteForm2').attr('action', '/carreras/{{$c['id']}}/{{$p['id']}}/competencias/aprendizajes/'+data[0]);
+                $('#modal_eliminar_aprendizaje').modal('show');
+
+            }  );
         });
 
     </script>

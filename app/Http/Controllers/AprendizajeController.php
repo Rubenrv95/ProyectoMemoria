@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aprendizaje;
+use App\Models\Competencia;
 use Illuminate\Http\Request;
+use App\Models\Carrera;
+use App\Models\Plan;
+use Illuminate\Support\Facades\DB;
+use Datatables;
 
 class AprendizajeController extends Controller
 {
@@ -19,13 +24,7 @@ class AprendizajeController extends Controller
      */
     public function index()
     {
-        $plan = DB::table('planes')->where('id', $id_plan)->get();
-        $carrera = DB::table('carreras')->where('id', $id_carrera)->get(); 
-        $plan = json_decode($plan, true);
-        $carrera = json_decode($carrera, true);
-        $competencia = DB::table('aprendizajes')->where('refCompetencia', $id_plan)->get();
-        $competencia = json_decode($competencia, true);
-        return view('planes.aprendizajes')->with('plan', $plan)->with('carrera', $carrera)->with('competencia', $competencia);
+        //
     }
 
     /**
@@ -33,9 +32,19 @@ class AprendizajeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id_carrera, $id_plan, Request $request)
     {
-        //
+        $request->validate([
+            'desc_aprendizaje'=>'required'
+        ]);
+
+
+        $query = DB::table('aprendizajes')->insert([
+            'Descripcion_aprendizaje'=>$request->input('desc_aprendizaje'),
+            'refCompetencia'=>$request->input('refComp'),
+        ]);
+
+        return back();
     }
 
     /**
@@ -78,9 +87,19 @@ class AprendizajeController extends Controller
      * @param  \App\Models\Aprendizaje  $aprendizaje
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Aprendizaje $aprendizaje)
+    public function update($id_carrera, $id_plan, Request $request, $id_aprend)
     {
-        //
+        $request->validate([
+            'desc_aprendizaje'=>'required'
+        ]);
+
+
+        $query = DB::table('aprendizajes')->where('id', $id_aprend)->update([
+            'Descripcion_aprendizaje'=>$request->input('desc_aprendizaje'),
+            'refCompetencia'=>$request->input('refComp'),
+        ]);
+
+        return back();
     }
 
     /**
@@ -89,8 +108,10 @@ class AprendizajeController extends Controller
      * @param  \App\Models\Aprendizaje  $aprendizaje
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aprendizaje $aprendizaje)
+    public function destroy($id_carrera, $id_plan, $id_aprend)
     {
-        //
+        $query = DB::table('aprendizajes')->where('id', $id_aprend)->delete();
+        
+        return back();
     }
 }

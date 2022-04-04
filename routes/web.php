@@ -44,7 +44,9 @@ Route::post('crearCarrera', 'CarreraController@create');
     Route::put('/carreras/{id}/{plan}/competencias/{competencia}', 'CompetenciaController@update');
     Route::delete('/carreras/{id}/{plan}/competencias/{competencia}', 'CompetenciaController@destroy');
 
-    Route::get('/carreras/{id}/{plan}/aprendizajes', 'AprendizajeController@index');
+    Route::post('/carreras/{id}/{plan}/competencias/aprendizajes', 'AprendizajeController@create');
+    Route::put('/carreras/{id}/{plan}/competencias/aprendizajes/{aprend}', 'AprendizajeController@update');
+    Route::delete('/carreras/{id}/{plan}/competencias/aprendizajes/{aprend}', 'AprendizajeController@destroy');
 
     Auth::routes();
     Route::get('/home', 'HomeController@index');
