@@ -21,7 +21,7 @@
 <body >
         <div class="container-fluid">   
                 
-                <a href="/carreras/{{$c['id']}}/{{$p['id']}}"></a>
+                <a href="/carreras/{{$c['id']}}/{{$p['id']}}"><img src="/images/back.png" alt="" srcset="" style="margin-top: 10px; margin-bottom: 10px"></a>
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="mb-0 text-gray-800">{{$p['Nombre']}} - {{$c['nombre']}} </h1>
                 </div>
@@ -128,8 +128,8 @@
                                                 <label style="font-size: 20">Tipo de Competencia</label>
                                                 <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
                                                     <option selected value="Carrera">Carrera</option>
-                                                    <option value="Plan Común">Plan Común</option>
-                                                    <option value="Idiomas">Idiomas</option>
+                                                    <option value="Común">Común</option>
+                                                    <option value="Genérica">Genérica</option>
                                                 </select>
                                             </div>
                                     </div>
@@ -176,8 +176,8 @@
                                                 <label style="font-size: 20">Tipo de Competencia</label>
                                                 <select class="form-select form-select-lg" name="tipo" id="tipo" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
                                                     <option selected value="Carrera">Carrera</option>
-                                                    <option value="Plan Común">Plan Común</option>
-                                                    <option value="Idiomas">Idiomas</option>
+                                                    <option value="Común">Común</option>
+                                                    <option value="Genérica">Genérica</option>
                                                 </select>
                                             </div>
                                     </div>
@@ -250,8 +250,8 @@
                                     <div class="modal-body">
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
-                                                <label style="font-size: 20">Descripción de la competencia</label>
-                                                <input class="form-control form-control-lg" name="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
+                                                <label style="font-size: 20">Descripción del aprendizaje</label>
+                                                <input class="form-control form-control-lg" name="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción del aprendizaje"/>
                                                 <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
                                             </div>
 
@@ -298,8 +298,8 @@
                                     <div class="modal-body">
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
-                                                <label style="font-size: 20">Descripción de la competencia</label>
-                                                <input class="form-control form-control-lg" name="desc_aprendizaje" id="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
+                                                <label style="font-size: 20">Descripción del aprendizaje </label>
+                                                <input class="form-control form-control-lg" name="desc_aprendizaje" id="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción del aprendizaje"/>
                                                 <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
                                             </div>
 
@@ -345,7 +345,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <input type="hidden" name="method" value="DELETE"> 
-                                        <p style="font-size: 18">¿Está seguro de que desea eliminar ésta competencia?</p>
+                                        <p style="font-size: 18">¿Está seguro de que desea eliminar éste aprendizaje?</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">Eliminar</button>

@@ -253,9 +253,9 @@
                 var data = table.row($tr).data();
                 console.log(data);
 
-                $('#nombre').val(data[0]);
-                $('#email').val(data[1]);
-                $('#carrera').val(data[2]);
+                $('#nombre').val(data[1]);
+                $('#email').val(data[2]);
+                $('#carrera').val(data[3]);
 
                 $('#editForm').attr('action', '/usuarios/'+data[0]);
                 $('#modal_modificar_usuario').modal('show');

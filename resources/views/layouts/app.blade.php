@@ -86,7 +86,7 @@
                                             <h1 class="justify-content-center"  style="margin: auto">Cerrar sesión</h1>
                                         </div>
                                         <div class="modal-body">
-                                            ¿Está seguro que desea cerrar sesión?          
+                                            ¿Está seguro que desea finalizar la sesión?          
                                         </div>
                                         <div class="modal-footer">
                                             <a href="/logout"><button class="btn btn-danger" style="width: 120%;">Cerrar sesión</button></a>

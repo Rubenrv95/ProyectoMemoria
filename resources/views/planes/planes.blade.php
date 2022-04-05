@@ -19,6 +19,7 @@
 
 
     <div class="container-fluid">
+        <a href="/carreras/"><img src="/images/back.png" alt="" srcset="" style="margin-top: 10px; margin-bottom: 10px"></a>
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
         @foreach($name as $n)
             <h1 class="mb-0 text-gray-800"> {{ $n['nombre'] }} </h1>
