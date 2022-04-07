@@ -36,6 +36,7 @@ Route::post('crearCarrera', 'CarreraController@create');
     Route::delete('/carreras/{id}/{plan}', 'PlanController@destroy');
     Route::put('/carreras/{id}/{plan}', 'PlanController@update');
     Route::get('/carreras/{id}/{plan}', 'PlanController@show');
+    
     Route::resource('/usuarios', 'UserController');
     Route::post('register', 'UserController@create');
 

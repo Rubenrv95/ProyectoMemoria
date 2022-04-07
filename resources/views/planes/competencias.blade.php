@@ -40,6 +40,7 @@
                                 <th>ID <img src="/images/arrows.png" alt="" srcset=""> </th>
                                 <th>Descripción<img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Tipo de Competencia <img src="/images/arrows.png" alt="" srcset=""></th>
+                                <th>Nivel de Desarrollo <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th style="width: 150px"></th>
                                 </tr>
                         </thead>
@@ -51,6 +52,7 @@
                                 <td>{{$comp['id']}}</td>
                                 <td>{{$comp['Descripcion']}}</td>
                                 <td>{{$comp['Tipo']}}</td>
+                                <td>{{$comp['Nivel']}}</td>
                                 <td>
                                         <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_competencia" class="edit"> </button>
                                         <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_competencia" class="delete"> </button>
@@ -120,7 +122,7 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción de la competencia</label>
-                                                <input class="form-control form-control-lg" name="desc_competencia" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
+                                                <textarea name="desc_competencia" type="text"  placeholder="Ingrese la descripción de la competencia" rows="3" cols="50" maxlength="200"></textarea>
                                                 <span style="color: red">@error('desc_competencia')  Debe ingresar una descripción para la competencia  @enderror</span>
                                             </div>
 
@@ -130,6 +132,15 @@
                                                     <option selected value="Carrera">Carrera</option>
                                                     <option value="Común">Común</option>
                                                     <option value="Genérica">Genérica</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group" style="margin: auto">
+                                                <label style="font-size: 20">Nivel de Desarrollo</label>
+                                                <select class="form-select form-select-lg" name="nivel" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                                    <option selected value="Básico">Básico</option>
+                                                    <option value="Medio">Medio</option>
+                                                    <option value="Avanzado">Avanzado</option>
                                                 </select>
                                             </div>
                                     </div>
@@ -168,7 +179,7 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción de la competencia</label>
-                                                <input class="form-control form-control-lg" name="desc_competencia" id="desc_competencia" style="width: 470px" type="text"  placeholder="Ingrese la descripción de la competencia"/>
+                                                <textarea name="desc_competencia" id="desc_competencia" type="text"  placeholder="Ingrese la descripción de la competencia" rows="3" cols="50" maxlength="200"></textarea>
                                                 <span style="color: red">@error('desc_competencia')  Debe ingresar una descripción para la competencia  @enderror</span>
                                             </div>
 
@@ -178,6 +189,14 @@
                                                     <option selected value="Carrera">Carrera</option>
                                                     <option value="Común">Común</option>
                                                     <option value="Genérica">Genérica</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="margin: auto">
+                                                <label style="font-size: 20">Nivel de Desarrollo</label>
+                                                <select class="form-select form-select-lg" name="nivel" id="nivel" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                                    <option selected value="Básico">Básico</option>
+                                                    <option value="Medio">Medio</option>
+                                                    <option value="Avanzado">Avanzado</option>
                                                 </select>
                                             </div>
                                     </div>
@@ -251,7 +270,7 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción del aprendizaje</label>
-                                                <input class="form-control form-control-lg" name="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción del aprendizaje"/>
+                                                <textarea name="desc_aprendizaje" type="text"  placeholder="Ingrese la descripción del aprendizaje" rows="3" cols="50" maxlength="200"></textarea>
                                                 <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
                                             </div>
 
@@ -299,7 +318,7 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción del aprendizaje </label>
-                                                <input class="form-control form-control-lg" name="desc_aprendizaje" id="desc_aprendizaje" style="width: 470px" type="text"  placeholder="Ingrese la descripción del aprendizaje"/>
+                                                <textarea name="desc_aprendizaje" id="desc_aprendizaje" type="text"  placeholder="Ingrese la descripción del aprendizaje" rows="3" cols="50" maxlength="200"></textarea>
                                                 <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
                                             </div>
 
@@ -396,6 +415,7 @@
 
                 $('#desc_competencia').val(data[1]);
                 $('#tipo').val(data[2]);
+                $('#nivel').val(data[3]);
 
                 $('#editForm').attr('action', '/carreras/{{$c['id']}}/{{$p['id']}}/competencias/'+data[0]);
                 $('#modal_modificar_competencia').modal('show');

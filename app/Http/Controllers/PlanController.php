@@ -96,6 +96,7 @@ class PlanController extends Controller
      */
     public function update($id, $plan, Request $request)
     {
+
         $request->validate([
             'nombre_plan'=>'required'
 

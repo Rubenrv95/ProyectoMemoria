@@ -50,6 +50,7 @@ class CompetenciaController extends Controller
         $query = DB::table('competencias')->insert([
             'Descripcion'=>$request->input('desc_competencia'),
             'Tipo'=>$request->input('tipo'),
+            'Nivel'=>$request->input('nivel'),
             'refPlan'=>$id_plan,
         ]);
 
@@ -106,6 +107,7 @@ class CompetenciaController extends Controller
         $query = DB::table('competencias')->where('id', $id_comp)->update([
             'Descripcion'=>$request->input('desc_competencia'),
             'Tipo'=>$request->input('tipo'),
+            'Nivel'=>$request->input('nivel'),
         ]);
 
         return back();

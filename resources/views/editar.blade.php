@@ -136,7 +136,7 @@
                 </div>
             </div>
 
-       <div class="" style="margin-left: 80%;">
+       <div class="ms-auto ml-auto">
             <button class="btn btn-success">Guardar</button>
             <button class="btn btn-info">Guardar como nuevo plan</button>
        </div>                                     
@@ -150,7 +150,7 @@
                 <div class ="col-md-12">
                     <div tabIndex="-1" class="modal fade" id="modal_editar_plan" aria-hidden="true"> 
                         <div class="modal-dialog modal-md">
-                            <form action="/carreras/{{$c['id']}}" method="PUT" class="form-group">
+                            <form action="/carreras/{{$c['id']}}/{{$p['id']}}" method="POST" class="form-group">
                             @csrf
                             @method('PUT')
                                 <div class="modal-content" style="width: 600px">
@@ -166,10 +166,6 @@
                                                 <span style="color: red">@error('nombre_plan')  Debe ingresar un nombre para el plan  @enderror</span>          
                                             </div>
 
-                                            <div class="form-group">
-                                                <input name="nombre_carrera" type="hidden" value="">              
-                                            </div>
-
                                     </div>
                                     <div class="modal-footer">
                                                 <button class="btn btn-success" type="submit">Guardar</button>
@@ -184,92 +180,6 @@
             </div>
     </div>
 
-    <!--Modal competencias -->
-    <div class="container">
-            <div class="row">
-                <div class ="col-md-12">
-                    <div tabIndex="-1" class="modal fade" id="modal_comp" aria-hidden="true"> 
-                        <div class="modal-dialog modal-md">
-                            <form action="/carreras/{{$c['id']}}" method="PUT" class="form-group">
-                            @csrf
-                            @method('PUT')
-                                <div class="modal-content" style="width: 600px">
-
-                                    <div class="modal-header">
-                                        <h1 class="justify-content-center" style="margin: auto"> Competencias</h1>
-                                    </div>
-                                    <div class="modal-body">
-
-                                            <div class="form-group" style="margin: auto; margin-bottom: 20px">
-                                                <label style="font-size: 20">Descripción</label>
-                                                <input class="form-control form-control-lg" name="desc_comp" type="text" style="width: 550px;"  placeholder="Ingrese descripción de la competencia" value="" minlength="0" maxlength="200" size="200"/>
-                                                <span style="color: red">@error('desc_comp')  Debe ingresar un nombre para el plan  @enderror</span>   
-                                                <label style="font-size: 20; margin-top: 10px">Tipo</label>  
-                                                <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:200px;">
-                                                    <option selected value="Administración y Comercio">De Carrera</option>
-                                                    <option value="Arte y Arquitectura">Arte y Arquitectura</option>
-                                                    <option value="Carreras Técnicas">Carreras Técnicas</option>
-                                                </select>     
-                                                <hr class="sidebar-divider">
-                                                <button class="agregar" style="margin-top: 10px; text-align: center;">Agregar</button>
-                                            </div>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                                <button class="btn btn-success" type="submit">Guardar</button>
-                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
-                                    </div> 
-                                
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
-
-    <!--Modal aprendizajes -->
-    <div class="container">
-            <div class="row">
-                <div class ="col-md-12">
-                    <div tabIndex="-1" class="modal fade" id="modal_apren" aria-hidden="true"> 
-                        <div class="modal-dialog modal-md">
-                            <form action="/carreras/{{$c['id']}}" method="PUT" class="form-group">
-                            @csrf
-                            @method('PUT')
-                                <div class="modal-content" style="width: 600px">
-
-                                    <div class="modal-header">
-                                        <h1 class="justify-content-center" style="margin: auto"> Aprendizajes</h1>
-                                    </div>
-                                    <div class="modal-body">
-
-                                            <div class="form-group" style="margin: auto; margin-bottom: 20px">
-                                                <label style="font-size: 20">Descripción</label>
-                                                <input class="form-control form-control-lg" name="desc_apren" type="text" style="width: 550px;"  placeholder="Ingrese descripción del aprendizaje" value="" minlength="0" maxlength="200" size="200"/>
-                                                <span style="color: red">@error('desc_apren')  Debe ingresar un nombre para el plan  @enderror</span>   
-                                                <label style="font-size: 20; margin-top: 10px">Competencia asociada</label>  
-                                                <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:550px;">
-                                                    <option selected value="Administración y Comercio">Competencia 1</option>
-                                                    <option value="Arte y Arquitectura">Arte y Arquitectura</option>
-                                                    <option value="Carreras Técnicas">Carreras Técnicas</option>
-                                                </select>     
-                                                <hr class="sidebar-divider">
-                                                <button class="agregar" style="margin-top: 10px; text-align: center;">Agregar</button>
-                                            </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                                <button class="btn btn-success" type="submit">Guardar</button>
-                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
-                                    </div> 
-                                
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
 
     <script src="@@path/vendor/sortablejs/Sortable.min.js"></script>
     <script>
