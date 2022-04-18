@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @foreach($name as $n)
-    <title>Lista de Planes de {{$n['nombre']}}</title>
+    <title>Lista de Planes de Estudio de {{$n['nombre']}}</title>
     @endforeach
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
@@ -65,7 +65,7 @@
                 <div class ="col-md-12">
                     <div tabIndex="-1" class="modal fade" id="modal_crear_plan" aria-hidden="true"> 
                         <div class="modal-dialog modal-md">
-                            <form action="/carreras/{{$id}}" method="POST" class="form-group">
+                            <form action="/carreras/{{$id}}/crearPlan" method="POST" class="form-group">
                             @csrf
                             @method('POST')
                                 <div class="modal-content" style="width: 600px">
@@ -77,7 +77,7 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Nombre del plan</label>
-                                                <input class="form-control form-control-lg" name="nombre_plan" style="width: 550px"  placeholder="Ingrese el nombre del plan"/>
+                                                <input class="form-control form-control-lg" name="nombre_plan" style="width:95%"  placeholder="Ingrese el nombre del plan"/>
                                                 <span style="color: red">@error('nombre_plan')  Debe ingresar un nombre para el plan  @enderror</span>                 
                                             </div>
 

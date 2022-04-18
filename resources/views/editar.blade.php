@@ -34,7 +34,7 @@
                 </h1> 
         </div>
 
-            <a href="/carreras/{{$c['id']}}/{{$p['id']}}/competencias"><button type="button" class="boton_gestionar">Competencias y Aprendizajes</button></a> 
+            <a href="/carreras/{{$c['id']}}/{{$p['id']}}/perfil_de_egreso"><button type="button" class="boton_gestionar">Perfil de Egreso</button></a> 
 
             <div class="container-fluid kanban-container py-4 px-0">
                 <div class="row d-flex flex-nowrap">

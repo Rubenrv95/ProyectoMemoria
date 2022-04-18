@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Saber;
 use App\Models\Aprendizaje;
 use App\Models\Competencia;
 use Illuminate\Http\Request;
@@ -10,13 +11,8 @@ use App\Models\Plan;
 use Illuminate\Support\Facades\DB;
 use Datatables;
 
-class AprendizajeController extends Controller
+class SaberController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -35,14 +31,14 @@ class AprendizajeController extends Controller
     public function create($id_carrera, $id_plan, Request $request)
     {
         $request->validate([
-            'desc_aprendizaje'=>'required'
+            'desc_saber'=>'required'
         ]);
 
 
-        $query = DB::table('aprendizajes')->insert([
-            'Descripcion_aprendizaje'=>$request->input('desc_aprendizaje'),
-            'tipo_aprendizaje'=>$request->input('tipo_aprend'),
-            'refCompetencia'=>$request->input('refComp'),
+        $query = DB::table('sabers')->insert([
+            'Descripcion_saber'=>$request->input('desc_saber'),
+            'tipo_saber'=>$request->input('tipo_saber'),
+            'refAprendizaje'=>$request->input('refAprend'),
         ]);
 
         return back();
@@ -62,10 +58,10 @@ class AprendizajeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Aprendizaje  $aprendizaje
+     * @param  \App\Models\Saber  $saber
      * @return \Illuminate\Http\Response
      */
-    public function show(Aprendizaje $aprendizaje)
+    public function show(Saber $saber)
     {
         //
     }
@@ -73,10 +69,10 @@ class AprendizajeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Aprendizaje  $aprendizaje
+     * @param  \App\Models\Saber  $saber
      * @return \Illuminate\Http\Response
      */
-    public function edit(Aprendizaje $aprendizaje)
+    public function edit(Saber $saber)
     {
         //
     }
@@ -85,20 +81,20 @@ class AprendizajeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Aprendizaje  $aprendizaje
+     * @param  \App\Models\Saber  $saber
      * @return \Illuminate\Http\Response
      */
-    public function update($id_carrera, $id_plan, Request $request, $id_aprend)
+    public function update($id_carrera, $id_plan, Request $request, $id_saber)
     {
         $request->validate([
-            'desc_aprendizaje'=>'required'
+            'desc_saber'=>'required'
         ]);
 
 
-        $query = DB::table('aprendizajes')->where('id', $id_aprend)->update([
-            'Descripcion_aprendizaje'=>$request->input('desc_aprendizaje'),
-            'tipo_aprendizaje'=>$request->input('tipo_aprend'),
-            'refCompetencia'=>$request->input('refComp'),
+        $query = DB::table('sabers')->where('id', $id_saber)->update([
+            'Descripcion_saber'=>$request->input('desc_saber'),
+            'tipo_saber'=>$request->input('tipo_saber'),
+            'refAprendizaje'=>$request->input('refAprend'),
         ]);
 
         return back();
@@ -107,12 +103,12 @@ class AprendizajeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Aprendizaje  $aprendizaje
+     * @param  \App\Models\Saber  $saber
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_carrera, $id_plan, $id_aprend)
+    public function destroy($id_carrera, $id_plan, $id_saber)
     {
-        $query = DB::table('aprendizajes')->where('id', $id_aprend)->delete();
+        $query = DB::table('sabers')->where('id', $id_saber)->delete();
         
         return back();
     }

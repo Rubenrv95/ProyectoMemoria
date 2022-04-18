@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listado de usuarios</title>
+        <title>Lista de Usuarios</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
         <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 </head>
@@ -26,7 +26,6 @@
                                 <th>ID <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Nombre de usuario <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Correo Electrónico <img src="/images/arrows.png" alt="" srcset=""></th>
-                                <th>Carrera <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th style="width: 150px"></th>
                                 </tr>
                         </thead>
@@ -38,7 +37,6 @@
                                 <td> {{$u['id']}}</td>
                                 <td> {{$u['nombre']}}</td>
                                 <td>{{$u['email']}}</td>
-                                <td>{{$u['carrera']}}</td>
                                 <td>
                                         <button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit"> </button>
                                         <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_carrera" class="delete"> </button>
@@ -70,7 +68,7 @@
                                     <div class="modal-body">
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Nombre Completo</label>
-                                            <input type="name" class="form-control form-control-lg" name="nombre"  style="width: 470px; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" />
+                                            <input type="name" class="form-control form-control-lg" name="nombre"  style="width:95%; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" />
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>Debe ingresar un nombre para el usuario</strong>
@@ -80,7 +78,7 @@
 
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20" >Correo Electrónico</label>
-                                            <input type="email" class="form-control form-control-lg" name="email" style="width: 470px; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" />
+                                            <input type="email" class="form-control form-control-lg" name="email" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" />
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>Debe ingresar el correo del usuario</strong>
@@ -88,18 +86,10 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group" style="margin: auto">
-                                            <label style="font-size: 20">Carrera</label>
-                                            <select class="form-select form-select-lg" name="carrera"  aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
-                                                    @foreach ($carrera as $c)
-                                                    <option value="{{$c['nombre']}}">{{$c['nombre']}}</option>
-                                                    @endforeach
-                                            </select>
-                                        </div>
 
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Contraseña</label>
-                                            <input type="password" class="form-control form-control-lg" name="password" style="width: 470px; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese la contraseña del usuario"/>
+                                            <input type="password" class="form-control form-control-lg" name="password" style="width:95%; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese la contraseña del usuario"/>
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>Ingrese una contraseña válida (al menos 6 caracteres)</strong>
@@ -109,7 +99,7 @@
 
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Confirmar contraseña</label>
-                                            <input type="password" class="form-control form-control-lg" name="password_confirmation" id = "password_confirmation" style="width: 470px; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese nuevamente la contraseña del usuario"/>
+                                            <input type="password" class="form-control form-control-lg" name="password_confirmation" id = "password_confirmation" style="width:95%; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese nuevamente la contraseña del usuario"/>
                                             @error('password_confirmation')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>La entrada no coincide con la contraseña ingresada</strong>
@@ -153,7 +143,7 @@
                                     <div class="modal-body">
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Nombre Completo</label>
-                                            <input type="name" class="form-control form-control-lg" name="nombre" id="nombre" style="width: 470px; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" />
+                                            <input type="name" class="form-control form-control-lg" name="nombre" id="nombre" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" />
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>Debe ingresar un nombre para el usuario</strong>
@@ -163,21 +153,12 @@
 
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20" >Correo Electrónico</label>
-                                            <input type="email" class="form-control form-control-lg" name="email" id="email" style="width: 470px; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" />
+                                            <input type="email" class="form-control form-control-lg" name="email" id="email" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" />
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>Debe ingresar el correo del usuario</strong>
                                             </span>
                                             @enderror
-                                        </div>
-
-                                        <div class="form-group" style="margin: auto">
-                                            <label style="font-size: 20">Carrera</label>
-                                            <select class="form-select form-select-lg" name="carrera" id = "carrera" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
-                                                    @foreach ($carrera as $c)
-                                                    <option value="{{$c['nombre']}}">{{$c['nombre']}}</option>
-                                                    @endforeach
-                                            </select>
                                         </div>
 
                                     </div>
@@ -255,7 +236,6 @@
 
                 $('#nombre').val(data[1]);
                 $('#email').val(data[2]);
-                $('#carrera').val(data[3]);
 
                 $('#editForm').attr('action', '/usuarios/'+data[0]);
                 $('#modal_modificar_usuario').modal('show');

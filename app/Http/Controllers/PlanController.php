@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan;
 use App\Models\Carrera;
+use App\Models\Modulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Datatables;
@@ -21,9 +22,11 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        
+        $query = DB::table('planes')->orderBy('Nombre')->join('carreras', 'planes.Carrera_asociada', '=', 'carreras.id')->select('planes.Nombre', 'planes.id', 'carreras.nombre as Ncarrera', 'carreras.id as idCarrera')->get();
+        $query = json_decode($query, true);
+        return view ('planes.vistaplanes')->with('data', $query);
     }
 
     /**
@@ -71,6 +74,7 @@ class PlanController extends Controller
 
         $query = DB::table('planes')->where('id', $plan)->get();
         $carrera = DB::table('carreras')->where('id', $id)->get(); 
+        $modulo =  DB::table('modulos')->where('refPlan', $plan)->get(); 
         $query = json_decode($query, true);
         $carrera = json_decode($carrera, true);
         return view('editar')->with('plan', $query)->with('carrera', $carrera);

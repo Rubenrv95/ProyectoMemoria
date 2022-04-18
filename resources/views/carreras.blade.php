@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listado de carreras</title>
+        <title>Lista de Carreras</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
@@ -70,13 +70,13 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Nombre de la carrera</label>
-                                                <input class="form-control form-control-lg" name="nombre_carrera" style="width: 470px"  placeholder="Ingrese el nombre de la carrera"/>
+                                                <input class="form-control form-control-lg" name="nombre_carrera" style="width:95%"  placeholder="Ingrese el nombre de la carrera"/>
                                                 <span style="color: red">@error('nombre_carrera')  Debe ingresar un nombre para la carrera  @enderror</span>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Área profesional</label>
-                                                <select class="form-select form-select-lg" name="area" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="area" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
                                                     <option selected value="Administración y Comercio">Administración y Comercio</option>
                                                     <option value="Arte y Arquitectura">Arte y Arquitectura</option>
                                                     <option value="Carreras Técnicas">Carreras Técnicas</option>
@@ -123,12 +123,12 @@
                                     <div class="modal-body">
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Nombre de la carrera</label>
-                                            <input class="form-control form-control-lg" name="nombre_carrera" id ="nombre_carrera" style="width: 470px; margin-bottom: 20px" value="" placeholder="Ingrese el nombre de la carrera"/>
+                                            <input class="form-control form-control-lg" name="nombre_carrera" id ="nombre_carrera" style="width:95%; margin-bottom: 20px" value="" placeholder="Ingrese el nombre de la carrera"/>
                                         </div>
 
                                         <div class="form-group" style="margin: auto">
                                             <label style="font-size: 20">Área profesional</label>
-                                            <select class="form-select form-select-lg" name="area" id = "area" aria-label=".form-select-lg example" style="width:470px; margin-bottom: 20px; font-size: 18">
+                                            <select class="form-select form-select-lg" name="area" id = "area" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
                                                     <option selected value="Administración y Comercio">Administración y Comercio</option>
                                                     <option value="Arte y Arquitectura">Arte y Arquitectura</option>
                                                     <option value="Carreras Técnicas">Carreras Técnicas</option>

@@ -24,8 +24,7 @@ class UserController extends Controller
     public function index()
     {
         $data = User::orderBy('nombre')->where('nombre', '<>', 'Administrador')->get(); 
-        $carreras = Carrera::orderBy('nombre')->get(); 
-        return view ('/usuarios', ['user'=>$data], ['carrera'=>$carreras]);
+        return view ('/usuarios', ['user'=>$data]);
     }
 
     /**
@@ -46,7 +45,6 @@ class UserController extends Controller
             'nombre'=>$request->input('nombre'),
             'email'=>$request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'carrera'=>$request->input('carrera'),
             'remember_token' => Str::random(10)
         ]);
 
@@ -104,7 +102,6 @@ class UserController extends Controller
         $query = DB::table('users')->where('id', $id)->update([
             'nombre'=>$request->input('nombre'),
             'email'=>$request->input('email'),
-            'carrera'=>$request->input('carrera')
         ]);
         
 

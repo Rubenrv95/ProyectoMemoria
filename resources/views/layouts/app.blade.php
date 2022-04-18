@@ -74,6 +74,37 @@
                 </div>
             </div>
 
+            <!-- MODAL CAMBIAR CONTRASEÑA  -->
+            <div class="container">
+                <div class="row">
+                    <div class ="col-md-12">
+                        <div tabIndex="-1"  class="modal fade" id="modal_password" aria-hidden="true" aria-labelledby="modalLabel">
+                            <div class="modal-dialog modal-md">
+                                    @csrf
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="justify-content-center"  style="margin: auto">Cambiar Contraseña</h1>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Contraseña Actual</h4>
+                                            <input type="password" class="form-control form-control-lg" style="width: ">  
+                                            <h4>Nueva Contraseña</h4>
+                                            <input type="password" class="form-control form-control-lg" style="width: ">    
+                                            <h4>Confirmar Nueva Contraseña</h4>
+                                            <input type="password" class="form-control form-control-lg" style="width: ">              
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cerrar</button>
+                                        </div> 
+                                        
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="container">
                 <div class="row">
@@ -157,6 +188,13 @@
                         <span>Carreras</span></a>
                 </li>
 
+                <!--Listado de planes -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/planes">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Planes</span></a>
+                </li>
+
                 <!-- Listado de Usuarios -->
                 <li class="nav-item">
                     <a class="nav-link" href="/usuarios">
@@ -188,7 +226,7 @@
                                     <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#modal_profile" aria-expanded="true">
                                         Ver perfil
                                     </a></li>
-                                    <li><a class="dropdown-item" href="">Cambiar contraseña</a></li>
+                                    <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#modal_password" aria-expanded="true">Cambiar contraseña</a></li>
                                     <li><hr class="dropdown-divider" /></li>
                                     <li><a class="dropdown-item" href=""  data-bs-toggle="modal" data-bs-target="#modal_logout"
                                         aria-expanded="true">Cerrar sesión</a></li>
