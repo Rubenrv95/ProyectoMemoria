@@ -163,13 +163,13 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción de la competencia</label>
-                                                <textarea class="form-control" name="desc_competencia" type="text"  placeholder="Ingrese la descripción de la competencia" rows="3" cols="50" maxlength="200"></textarea>
+                                                <textarea class="form-control" name="desc_competencia" type="text"  placeholder="Ingrese la descripción de la competencia" rows="3" cols="50" maxlength="200" required></textarea>
                                                 <span style="color: red">@error('desc_competencia')  Debe ingresar una descripción para la competencia  @enderror</span>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Tipo de Competencia</label>
-                                                <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>
                                                     <option selected value="Disciplinaria">Disciplinaria</option>
                                                     <option value="Formación fundamental">Formación fundamental</option>
                                                     <option value="Idiomas">Idiomas</option>
@@ -178,7 +178,7 @@
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Nivel de Desarrollo</label>
-                                                <select class="form-select form-select-lg" name="nivel" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="nivel" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>
                                                     <option selected value="Básico">Básico</option>
                                                     <option value="Medio">Medio</option>
                                                     <option value="Avanzado">Avanzado</option>
@@ -220,13 +220,13 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción de la competencia</label>
-                                                <textarea class="form-control" name="desc_competencia" id="desc_competencia" type="text"  placeholder="Ingrese la descripción de la competencia" rows="3" cols="50" maxlength="200"></textarea>
+                                                <textarea class="form-control" name="desc_competencia" id="desc_competencia" type="text"  placeholder="Ingrese la descripción de la competencia" rows="3" cols="50" maxlength="200" required></textarea>
                                                 <span style="color: red">@error('desc_competencia')  Debe ingresar una descripción para la competencia  @enderror</span>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Tipo de Competencia</label>
-                                                <select class="form-select form-select-lg" name="tipo" id="tipo" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="tipo" id="tipo" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>
                                                     <option selected value="Disciplinaria">Disciplinaria</option>
                                                     <option value="Formación fundamental">Formación fundamental</option>
                                                     <option value="Idiomas">Idiomas</option>
@@ -234,7 +234,7 @@
                                             </div>
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Nivel de Desarrollo</label>
-                                                <select class="form-select form-select-lg" name="nivel" id="nivel" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="nivel" id="nivel" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>
                                                     <option selected value="Básico">Básico</option>
                                                     <option value="Medio">Medio</option>
                                                     <option value="Avanzado">Avanzado</option>
@@ -274,7 +274,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <input type="hidden" name="method" value="DELETE"> 
-                                        <p style="font-size: 18">¿Está seguro de que desea eliminar ésta competencia?</p>
+                                        <p style="font-size: 18">¿Está seguro de que desea eliminar ésta competencia? Se eliminarán todos los aprendizajes y saberes vinculados.</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -311,13 +311,12 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción del aprendizaje</label>
-                                                <textarea class="form-control" name="desc_aprendizaje" type="text"  placeholder="Ingrese la descripción del aprendizaje" rows="3" cols="50" maxlength="200"></textarea>
-                                                <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
+                                                <textarea class="form-control" name="desc_aprendizaje" type="text"  placeholder="Ingrese la descripción del aprendizaje" rows="3" cols="50" maxlength="200" required></textarea>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Tipo de aprendizaje</label>
-                                                <select class="form-select form-select-lg" name="tipo_aprend" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">   
+                                                <select class="form-select form-select-lg" name="tipo_aprend" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>   
                                                     <option selected value="Inicial">Inicial</option>
                                                     <option value="En desarrollo">En desarrollo</option>
                                                     <option value="Logrado">Logrado</option>
@@ -326,7 +325,7 @@
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Competencia asociada</label>
-                                                <select class="form-select form-select-lg" name="refComp" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18"> 
+                                                <select class="form-select form-select-lg" name="refComp" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required> 
                                                     @foreach ($competencia as $comp) 
                                                     <option value="{{$comp['id']}}">{{$comp['Descripcion']}}</option>
                                                     @endforeach
@@ -368,13 +367,12 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción del aprendizaje </label>
-                                                <textarea class="form-control" name="desc_aprendizaje" id="desc_aprendizaje" type="text"  placeholder="Ingrese la descripción del aprendizaje" rows="3" cols="50" maxlength="200"></textarea>
-                                                <span style="color: red">@error('desc_aprendizaje')  Debe ingresar una descripción para el aprendizaje  @enderror</span>
+                                                <textarea class="form-control" name="desc_aprendizaje" id="desc_aprendizaje" type="text"  placeholder="Ingrese la descripción del aprendizaje" rows="3" cols="50" maxlength="200" required></textarea>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Tipo de aprendizaje</label>
-                                                <select class="form-select form-select-lg" name="tipo_aprend" id ="tipo_aprend" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">   
+                                                <select class="form-select form-select-lg" name="tipo_aprend" id ="tipo_aprend" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>   
                                                     <option selected value="Inicial">Inicial</option>
                                                     <option value="En desarrollo">En desarrollo</option>
                                                     <option value="Logrado">Logrado</option>
@@ -383,7 +381,7 @@
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Competencia asociada</label>
-                                                <select class="form-select form-select-lg" name="refComp" id="refComp" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18" placeholder="Seleccione una competencia">
+                                                <select class="form-select form-select-lg" name="refComp" id="refComp" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" placeholder="Seleccione una competencia" required>
                                                     @foreach ($competencia as $comp)   
                                                         <option value="{{$comp['id']}}">{{$comp['Descripcion']}}</option>
                                                     @endforeach
@@ -423,7 +421,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <input type="hidden" name="method" value="DELETE"> 
-                                        <p style="font-size: 18">¿Está seguro de que desea eliminar éste aprendizaje?</p>
+                                        <p style="font-size: 18">¿Está seguro de que desea eliminar éste aprendizaje? Se eliminarán todos los saberes vinculados.</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -459,13 +457,13 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción del saber</label>
-                                                <textarea class="form-control" name="desc_saber" type="text"  placeholder="Ingrese la descripción del saber" rows="3" cols="50" maxlength="200"></textarea>
+                                                <textarea class="form-control" name="desc_saber" type="text"  placeholder="Ingrese la descripción del saber" rows="3" cols="50" maxlength="200" required></textarea>
                                                 <span style="color: red">@error('desc_saber')  Debe ingresar una descripción para el saber  @enderror</span>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Tipo de Saber</label>
-                                                <select class="form-select form-select-lg" name="tipo_saber" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="tipo_saber" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>
                                                     <option selected value="Cognitivo">Cognitivo</option>
                                                     <option value="Actitudinal">Actitudinal</option>
                                                     <option value="Procedimental">Procedimental</option>
@@ -474,7 +472,7 @@
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Aprendizaje asociado </label>
-                                                <select class="form-select form-select-lg" name="refAprend" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="refAprend" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>
                                                     @foreach ($aprendizaje as $a)  
                                                     <option value="{{$a['id']}}">{{$a['Descripcion_aprendizaje']}}</option>
                                                     @endforeach
@@ -516,13 +514,13 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Descripción de la competencia</label>
-                                                <textarea class="form-control" name="desc_saber" id="desc_saber" type="text"  placeholder="Ingrese la descripción del saber" rows="3" cols="50" maxlength="200"></textarea>
+                                                <textarea class="form-control" name="desc_saber" id="desc_saber" type="text"  placeholder="Ingrese la descripción del saber" rows="3" cols="50" maxlength="200" required></textarea>
                                                 <span style="color: red">@error('desc_saber')  Debe ingresar una descripción para el saber @enderror</span>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Tipo de Saber</label>
-                                                <select class="form-select form-select-lg" name="tipo_saber" id="tipo_saber" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="tipo_saber" id="tipo_saber" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>
                                                     <option selected value="Cognitivo">Cognitivo</option>
                                                     <option value="Actitudinal">Actitudinal</option>
                                                     <option value="Procedimental">Procedimental</option>
@@ -530,7 +528,7 @@
                                             </div>
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Aprendizaje asociado </label>
-                                                <select class="form-select form-select-lg" name="refAprend" id ="refAprend" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">                 
+                                                <select class="form-select form-select-lg" name="refAprend" id ="refAprend" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18" required>                 
                                                     @foreach ($aprendizaje as $a)  
                                                     <option value="{{$a['id']}}">{{$a['Descripcion_aprendizaje']}}</option>
                                                     @endforeach
@@ -598,17 +596,20 @@
         $(document).ready(function() {
             var table = $('#lista').DataTable({
 
-                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">',
+                "order": [[ 1, "asc" ]]
             });
 
             var table2 = $('#lista2').DataTable({
 
-                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">',
+                "order": [[ 1, "asc" ]]
             });
 
             var table3 = $('#lista3').DataTable({
 
-                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">',
+                "order": [[ 1, "asc" ]]
             });
 
 

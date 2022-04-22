@@ -39,9 +39,10 @@ class SaberController extends Controller
             'Descripcion_saber'=>$request->input('desc_saber'),
             'tipo_saber'=>$request->input('tipo_saber'),
             'refAprendizaje'=>$request->input('refAprend'),
+            'refPlan'=>$id_plan,
         ]);
 
-        return back();
+        return back()->withSuccess('Saber creado con éxito');
     }
 
     /**
@@ -97,7 +98,7 @@ class SaberController extends Controller
             'refAprendizaje'=>$request->input('refAprend'),
         ]);
 
-        return back();
+        return back()->withSuccess('Saber actualizado con éxito');
     }
 
     /**
@@ -110,6 +111,6 @@ class SaberController extends Controller
     {
         $query = DB::table('sabers')->where('id', $id_saber)->delete();
         
-        return back();
+        return back()->withSuccess('Saber eliminado con éxito');
     }
 }

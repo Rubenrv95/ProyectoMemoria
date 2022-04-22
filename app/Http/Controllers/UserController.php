@@ -34,21 +34,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        $request->validate([
-            'nombre'=>'required|string',
-            'email'=>'required|string|email',
-            'password'  =>  'required|alphaNum|min:6|confirmed'
-        ]);
-
-
-        $query = DB::table('users')->insert([
-            'nombre'=>$request->input('nombre'),
-            'email'=>$request->input('email'),
-            'password' => Hash::make($request->input('password')),
-            'remember_token' => Str::random(10)
-        ]);
-
-        return redirect()->intended('/usuarios');
+        
     }
 
     /**
@@ -59,7 +45,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre'=>'required|string',
+            'email'=>'required|string|email',
+            'password'  =>  'required|alphaNum|min:6|confirmed',
+            'password_confirmation'  => ['same:password'],
+        ]);
+
+
+        $query = DB::table('users')->insert([
+            'nombre'=>$request->input('nombre'),
+            'email'=>$request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'remember_token' => Str::random(10)
+        ]);
+
+        return back()->withSuccess('Usuario creado con éxito');
     }
 
     /**
@@ -105,7 +106,7 @@ class UserController extends Controller
         ]);
         
 
-        return redirect('/usuarios')->with('success', 'Data actualizada');
+        return back()->withSuccess('Datos de usuario actualizados con éxito');
     }
 
     /**
@@ -118,6 +119,6 @@ class UserController extends Controller
     {
         $query = DB::table('users')->where('id', $id)->delete();
         
-        return redirect('/usuarios')->with('success', 'Logrado');
+        return back()->withSuccess('Usuario eliminado con éxito');
     }
 }

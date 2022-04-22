@@ -62,7 +62,7 @@ class LoginController extends Controller
             return redirect()->intended('/home');
         }
         else {
-            return back()->with('error', 'Datos incorrectos');
+            return back()->withError('Datos incorrectos');
         }
     }
 

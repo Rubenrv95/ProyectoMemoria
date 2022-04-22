@@ -42,6 +42,7 @@
         @endif
 
         @else
+
             
         <!-- MODAL DATOS DE USUARIO  -->
             <div class="container">
@@ -58,9 +59,7 @@
                                             <h4 style="color: black; font-weight: bold">Nombre</h4>
                                             <h6 style="color: black">{{Auth::user()->nombre}}</h6>      
                                             <h4 style="color: black; font-weight: bold">Correo Electrónico</h4>
-                                            <h6 style="color: black">{{Auth::user()->email}}</h6>      
-                                            <h4 style="color: black; font-weight: bold">Carrera</h4>
-                                            <h6 style="color: black">{{Auth::user()->facultad}}</h6>               
+                                            <h6 style="color: black">{{Auth::user()->email}}</h6>                    
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cerrar</button>
@@ -80,20 +79,40 @@
                     <div class ="col-md-12">
                         <div tabIndex="-1"  class="modal fade" id="modal_password" aria-hidden="true" aria-labelledby="modalLabel">
                             <div class="modal-dialog modal-md">
+                                <form method="POST" action="{{ route('change.password') }}">
                                     @csrf
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="justify-content-center"  style="margin: auto">Cambiar Contraseña</h1>
                                         </div>
                                         <div class="modal-body">
-                                            <h4>Contraseña Actual</h4>
-                                            <input type="password" class="form-control form-control-lg" style="width: ">  
-                                            <h4>Nueva Contraseña</h4>
-                                            <input type="password" class="form-control form-control-lg" style="width: ">    
-                                            <h4>Confirmar Nueva Contraseña</h4>
-                                            <input type="password" class="form-control form-control-lg" style="width: ">              
+
+                                        <h4>Contraseña Actual</h4>
+                                        <div class="form-inline" id="show_hide_password">
+                                            <input type="password" name="current_password" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>
+                                            <div class="form-group-addon" style="padding-left: 1%">
+                                                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
+
+                                        <h4>Nueva Contraseña</h4>
+                                        <div class="form-inline" id="show_hide_password2">
+                                        <input type="password" id="new_password" name="new_password" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>    
+                                            <div class="form-group-addon" style="padding-left: 1%">
+                                                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <h4>Confirmar Nueva Contraseña</h4>
+                                        <div class="form-inline" id="show_hide_password3">
+                                            <input type="password" id="new_confirm_password" name="new_confirm_password" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>              
+                                            <div class="form-group-addon" style="padding-left: 1%">
+                                                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                         </div>
                                         <div class="modal-footer">
+                                            <button class="btn btn-success" type="submit">Confirmar</button>
                                             <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cerrar</button>
                                         </div> 
                                         
@@ -111,7 +130,8 @@
                     <div class ="col-md-12">
                         <div tabIndex="-1"  class="modal fade" id="modal_logout" aria-hidden="true" aria-labelledby="modalLabel">
                             <div class="modal-dialog modal-md">
-                                    @csrf
+                                
+                                    
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="justify-content-center"  style="margin: auto">Cerrar sesión</h1>
@@ -125,7 +145,7 @@
                                         </div> 
                                         
                                     </div>
-                                </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -133,6 +153,7 @@
             </div>
 
         @endguest
+
         <div id="wrapper">
 
             @guest
@@ -215,6 +236,7 @@
 
             <div id="content-wrapper" class="d-flex flex-column">
 
+
                 <!-- Contenido principal -->
                 <div id="content" style="background-color: #f6f6f6">
                 <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background: #333333">
@@ -236,11 +258,78 @@
                     </ul>
                 </nav>
                 @endguest
+                @if(session('success'))
+                    <div class="alert alert-dismissable alert-success">
+                        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>    
+                            {{session('success')}}
+                        </strong>
+                    </div>
+                @endif
+
+                @if(session('error'))
+                    <div class="alert alert-dismissable alert-danger">
+                        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>    
+                            {{session('error')}}
+                        </strong>
+                    </div>
+                @endif
+
                     @yield('content')
                 </div>
 
             </div>
         </div>
     </div>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#show_hide_password a").on('click', function(event) {
+                event.preventDefault();
+                if($('#show_hide_password input').attr("type") == "text"){
+                    $('#show_hide_password input').attr('type', 'password');
+                    $('#show_hide_password i').addClass( "fa-eye-slash" );
+                    $('#show_hide_password i').removeClass( "fa-eye" );
+                }else if($('#show_hide_password input').attr("type") == "password"){
+                    $('#show_hide_password input').attr('type', 'text');
+                    $('#show_hide_password i').removeClass( "fa-eye-slash" );
+                    $('#show_hide_password i').addClass( "fa-eye" );
+                }
+            });
+
+            $("#show_hide_password2 a").on('click', function(event) {
+                event.preventDefault();
+                if($('#show_hide_password2 input').attr("type") == "text"){
+                    $('#show_hide_password2 input').attr('type', 'password');
+                    $('#show_hide_password2 i').addClass( "fa-eye-slash" );
+                    $('#show_hide_password2 i').removeClass( "fa-eye" );
+                }else if($('#show_hide_password2 input').attr("type") == "password"){
+                    $('#show_hide_password2 input').attr('type', 'text');
+                    $('#show_hide_password2 i').removeClass( "fa-eye-slash" );
+                    $('#show_hide_password2 i').addClass( "fa-eye" );
+                }
+            });
+
+            $("#show_hide_password3 a").on('click', function(event) {
+                event.preventDefault();
+                if($('#show_hide_password3 input').attr("type") == "text"){
+                    $('#show_hide_password3 input').attr('type', 'password');
+                    $('#show_hide_password3 i').addClass( "fa-eye-slash" );
+                    $('#show_hide_password3 i').removeClass( "fa-eye" );
+                }else if($('#show_hide_password3 input').attr("type") == "password"){
+                    $('#show_hide_password3 input').attr('type', 'text');
+                    $('#show_hide_password3 i').removeClass( "fa-eye-slash" );
+                    $('#show_hide_password3 i').addClass( "fa-eye" );
+                }
+            });
+            
+        });
+    </script>
 </body>
 </html>

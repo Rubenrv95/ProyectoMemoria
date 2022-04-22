@@ -51,7 +51,8 @@
     <script>    
         $(document).ready(function() {
             var table = $('#lista').DataTable( {
-                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">',
+                "order": [[ 2, "asc" ]]
                 
             });           
         });

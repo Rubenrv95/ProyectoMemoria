@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Plan;
 use App\Models\Carrera;
 use App\Models\Modulo;
+use App\Models\Competencia;
+use App\Models\Aprendizaje;
+use App\Models\Saber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Datatables;
@@ -46,10 +49,9 @@ class PlanController extends Controller
             'Carrera_asociada'=>$request->input('nombre_carrera'),
         ]);
 
-        echo 'Entré';
 
 
-        return back()->with('EXITO', 'Plan creado');
+        return back()->withSuccess('Plan de estudio creado con éxito');
     }
 
     /**
@@ -112,7 +114,7 @@ class PlanController extends Controller
         ]);
         
 
-        return back();
+        return back()->withSuccess('Plan de estudio actualizado con éxito');
     }
 
     /**
@@ -123,8 +125,14 @@ class PlanController extends Controller
      */
     public function destroy($id, $plan)
     {
+
+        //se eliminan todas las competencias, aprendizajes y saberes asociados al plan de estudio
+        $competencias = DB::table('competencias')->where('refPlan', $plan)->delete();
+        $aprendizajes = DB::table('aprendizajes')->where('refPlan', $plan)->delete();
+        $saberes = DB::table('sabers')->where('refPlan', $plan)->delete();
+
         $query = DB::table('planes')->where('id', $plan)->delete();
 
-        return back();
+        return back()->withSuccess('Plan de estudio eliminado con éxito');
     }
 }

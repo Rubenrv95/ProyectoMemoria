@@ -76,7 +76,7 @@
                                         <a class="dropdown-item fw-normal rounded-top" href="#" data-bs-toggle="modal" data-bs-target="#editTaskModal"><span class="fas fa-edit"></span>Edit task</a> <a class="dropdown-item fw-normal" href="#"><span class="far fa-clone"></span>Copy Task</a> <a class="dropdown-item fw-normal" href="#"><span class="far fa-star"></span> Add to favorites</a><div role="separator" class="dropdown-divider my-0"></div><a class="dropdown-item fw-normal text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt"></span>Remove</a></div></div></div></div>
                                         
                                     </div>                       
-                                    <button class="agregar" href="#" style="font-size: 16; margin-top: 10px; margin-right: auto">
+                                    <button class="agregar" href="#" style="font-size: 16; margin-top: 10px; margin-right: auto" data-bs-toggle="modal" data-bs-target="#modal_crear_modulo">
                                         Añadir módulo
                                     </button>
                                 </div>     
@@ -138,7 +138,7 @@
 
        <div class="ms-auto ml-auto">
             <button class="btn btn-success">Guardar</button>
-            <button class="btn btn-info">Guardar como nuevo plan</button>
+            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal_nuevo_plan">Guardar como nuevo plan</button>
        </div>                                     
                 
     </div>
@@ -162,9 +162,89 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Nombre del plan</label>
-                                                <input class="form-control form-control-lg" name="nombre_plan" style="width: 550px"  placeholder="Ingrese el nombre del plan" value="{{$p['Nombre']}}"/>
-                                                <span style="color: red">@error('nombre_plan')  Debe ingresar un nombre para el plan  @enderror</span>          
+                                                <input class="form-control form-control-lg" name="nombre_plan" style="width:100%"  placeholder="Ingrese el nombre del plan" value="{{$p['Nombre']}}" required/>  
                                             </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                                <button class="btn btn-success" type="submit">Guardar</button>
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                    </div> 
+                                
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <!--Modal guardar como nuevo plan de estudio -->
+    <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    <div tabIndex="-1" class="modal fade" id="modal_nuevo_plan" aria-hidden="true"> 
+                        <div class="modal-dialog modal-md">
+                            <form action="" method="POST" class="form-group">
+                            @csrf
+                            @method('PUT')
+                                <div class="modal-content" style="width: 600px">
+
+                                    <div class="modal-header">
+                                        <h1 class="justify-content-center" style="margin: auto"> Guardar Como Nuevo Plan de Estudio</h1>
+                                    </div>
+                                    <div class="modal-body">
+
+                                            <div class="form-group" style="margin: auto; margin-bottom: 20px">
+                                                <label style="font-size: 20">Nombre del plan</label>
+                                                <input class="form-control form-control-lg" name="nombre_plan" style="width:100%"  placeholder="Ingrese el nombre del plan" value="{{$p['Nombre']}}" required/>  
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                                <button class="btn btn-success" type="submit">Guardar</button>
+                                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                    </div> 
+                                
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!--Modal añadir modulo -->
+    <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    <div tabIndex="-1" class="modal fade" id="modal_crear_modulo" aria-hidden="true"> 
+                        <div class="modal-dialog modal-md">
+                            <form action="" method="POST" class="form-group">
+                            @csrf
+                            @method('PUT')
+                                <div class="modal-content" style="width: 600px">
+
+                                    <div class="modal-header">
+                                        <h1 class="justify-content-center" style="margin: auto"> Añadir Módulo</h1>
+                                    </div>
+                                    <div class="modal-body">
+
+                                            <div class="form-group" style="margin: auto; margin-bottom: 20px">
+                                                <label style="font-size: 20">Nombre del módulo</label>
+                                                <input class="form-control form-control-lg" name="nombre_modulo" style="width:100%"  placeholder="Ingrese el nombre del módulo" required/>  
+                                            </div>
+
+
+                                            <div class="form-inline" style="margin: auto; margin-bottom: 20px">
+                                                <label style="font-size: 20; margin-right: 5px">Código</label>
+                                                <input class="form-inline form-control form-control-lg" name="codigo_modulo" style="width: 120px; margin-right: 10px"  maxlength="4" placeholder="" required/>  
+                                                <label style="font-size: 20; margin-right: 5px">Créditos</label>
+                                                <input class="form-inline form-control form-control-lg" name="cred_modulo" type="number" style="width: 80px; margin-right: 10px" min="0" max="30" required/>   
+                                                <label style="font-size: 20; margin-right: 5px">Horas semanales</label>
+                                                <input class=" form-inline form-control form-control-lg" name="hrs_modulo" type="number" style="width: 80px; margin-right: 10px" min="0" max="99" required/>                 
+                                            </div>                                  
 
                                     </div>
                                     <div class="modal-footer">

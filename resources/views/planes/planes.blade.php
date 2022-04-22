@@ -77,8 +77,7 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Nombre del plan</label>
-                                                <input class="form-control form-control-lg" name="nombre_plan" style="width:95%"  placeholder="Ingrese el nombre del plan"/>
-                                                <span style="color: red">@error('nombre_plan')  Debe ingresar un nombre para el plan  @enderror</span>                 
+                                                <input class="form-control form-control-lg" name="nombre_plan" style="width:100%"  placeholder="Ingrese el nombre del plan" required/>        
                                             </div>
 
                                             <div class="form-group">
@@ -117,7 +116,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <input type="hidden" name="method"> 
-                                        <p style="font-size: 18">¿Está seguro de que desea eliminar éste plan de estudio?</p>
+                                        <p style="font-size: 18">¿Está seguro de que desea eliminar éste plan de estudio? Se eliminarán también todos los módulos y el perfil de egreso.</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -141,7 +140,8 @@
     <script>    
         $(document).ready(function() {
             var table = $('#lista').DataTable( {
-                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">',
+                "order": [[ 1, "asc" ]]
                 
             });
 

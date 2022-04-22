@@ -58,7 +58,7 @@
                 <div class ="col-md-12">
                     <div tabIndex="-1" class="modal fade" id="modal_user" aria-hidden="true">
                         <div class="modal-dialog modal-md" >
-                            <form action="register" method="POST" class="form-group">
+                            <form action="/usuarios" method="POST" class="form-group">
                                 @csrf
                                 <div class="modal-content">
 
@@ -68,43 +68,30 @@
                                     <div class="modal-body">
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Nombre Completo</label>
-                                            <input type="name" class="form-control form-control-lg" name="nombre"  style="width:95%; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" />
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>Debe ingresar un nombre para el usuario</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="name" class="form-control form-control-lg" name="nombre"  style="width:100%; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" maxlength="100" required />
                                         </div>
 
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20" >Correo Electrónico</label>
-                                            <input type="email" class="form-control form-control-lg" name="email" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" />
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>Debe ingresar el correo del usuario</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="email" class="form-control form-control-lg" name="email" style="width:100%; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" maxlength="100" required />
                                         </div>
 
 
-                                        <div class="form-group" style="margin: auto;">
+
+                                        <div class="form-inline" id="show_hide_password">
                                             <label style="font-size: 20">Contraseña</label>
-                                            <input type="password" class="form-control form-control-lg" name="password" style="width:95%; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese la contraseña del usuario"/>
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>Ingrese una contraseña válida (al menos 6 caracteres)</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="password" class="form-control form-control-lg" name="password" id="password" style="width:92%; margin-bottom: 20px" autocomplete="new-password" placeholder="Ingrese la contraseña del usuario" maxlength="20" required/>
+                                            <div class="form-group-addon" style="padding-left: 1%; margin-bottom: 2%">
+                                                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group" style="margin: auto;">
+                                        <div class="form-inline" id="show_hide_password2">
                                             <label style="font-size: 20">Confirmar contraseña</label>
-                                            <input type="password" class="form-control form-control-lg" name="password_confirmation" id = "password_confirmation" style="width:95%; margin-bottom: 20px" required autocomplete="new-password" placeholder="Ingrese nuevamente la contraseña del usuario"/>
-                                            @error('password_confirmation')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>La entrada no coincide con la contraseña ingresada</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="password" class="form-control form-control-lg" name="password_confirmation" id = "password_confirmation" style="width:92%; margin-bottom: 20px" autocomplete="new-password" placeholder="Ingrese nuevamente la contraseña del usuario" maxlength="20" required/>
+                                            <div class="form-group-addon" style="padding-left: 1%; margin-bottom: 2%">
+                                                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
 
                                         
@@ -143,22 +130,12 @@
                                     <div class="modal-body">
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Nombre Completo</label>
-                                            <input type="name" class="form-control form-control-lg" name="nombre" id="nombre" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" />
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>Debe ingresar un nombre para el usuario</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="name" class="form-control form-control-lg" name="nombre" id="nombre" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el nombre del usuario" maxlength="100" required />
                                         </div>
 
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20" >Correo Electrónico</label>
-                                            <input type="email" class="form-control form-control-lg" name="email" id="email" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" />
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>Debe ingresar el correo del usuario</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="email" class="form-control form-control-lg" name="email" id="email" style="width:95%; margin-bottom: 20px" placeholder="Ingrese el correo del usuario" maxlength="100" required/>
                                         </div>
 
                                     </div>
@@ -217,7 +194,8 @@
         $(document).ready(function() {
             var table = $('#lista').DataTable({
 
-                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">',
+                "order": [[ 1, "asc" ]]
             });
 
             
@@ -263,6 +241,8 @@
         });
 
     </script>
+
+    
 </body>
 @endsection
 

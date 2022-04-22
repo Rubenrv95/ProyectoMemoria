@@ -56,7 +56,7 @@ class CompetenciaController extends Controller
             'refPlan'=>$id_plan,
         ]);
 
-        return back();
+        return back()->withSuccess('Competencia creada con éxito');
     }
 
     /**
@@ -112,7 +112,7 @@ class CompetenciaController extends Controller
             'Nivel'=>$request->input('nivel'),
         ]);
 
-        return back();
+        return back()->withSuccess('Competencia actualizada con éxito');
     }
 
     /**
@@ -121,10 +121,10 @@ class CompetenciaController extends Controller
      * @param  \App\Models\Competencia  $competencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_carrera, $id_plan, $id_comp)
+    public function destroy($id_comp)
     {
         $query = DB::table('competencias')->where('id', $id_comp)->delete();
         
-        return back();
+        return back()->withSuccess('Competencia eliminada con éxito');
     }
 }

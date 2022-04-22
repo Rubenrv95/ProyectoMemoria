@@ -70,13 +70,12 @@
 
                                             <div class="form-group" style="margin: auto; margin-bottom: 20px">
                                                 <label style="font-size: 20">Nombre de la carrera</label>
-                                                <input class="form-control form-control-lg" name="nombre_carrera" style="width:95%"  placeholder="Ingrese el nombre de la carrera"/>
-                                                <span style="color: red">@error('nombre_carrera')  Debe ingresar un nombre para la carrera  @enderror</span>
+                                                <input class="form-control form-control-lg" name="nombre_carrera" style="width:100%"  placeholder="Ingrese el nombre de la carrera" maxlength="191" required/>
                                             </div>
 
                                             <div class="form-group" style="margin: auto">
                                                 <label style="font-size: 20">Área profesional</label>
-                                                <select class="form-select form-select-lg" name="area" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                                <select class="form-select form-select-lg" name="area" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18">
                                                     <option selected value="Administración y Comercio">Administración y Comercio</option>
                                                     <option value="Arte y Arquitectura">Arte y Arquitectura</option>
                                                     <option value="Carreras Técnicas">Carreras Técnicas</option>
@@ -123,12 +122,12 @@
                                     <div class="modal-body">
                                         <div class="form-group" style="margin: auto;">
                                             <label style="font-size: 20">Nombre de la carrera</label>
-                                            <input class="form-control form-control-lg" name="nombre_carrera" id ="nombre_carrera" style="width:95%; margin-bottom: 20px" value="" placeholder="Ingrese el nombre de la carrera"/>
+                                            <input class="form-control form-control-lg" name="nombre_carrera" id ="nombre_carrera" style="width:100%; margin-bottom: 20px" value="" placeholder="Ingrese el nombre de la carrera" maxlength="191" required/>
                                         </div>
 
                                         <div class="form-group" style="margin: auto">
                                             <label style="font-size: 20">Área profesional</label>
-                                            <select class="form-select form-select-lg" name="area" id = "area" aria-label=".form-select-lg example" style="width:95%; margin-bottom: 20px; font-size: 18">
+                                            <select class="form-select form-select-lg" name="area" id = "area" aria-label=".form-select-lg example" style="width:100%; margin-bottom: 20px; font-size: 18">
                                                     <option selected value="Administración y Comercio">Administración y Comercio</option>
                                                     <option value="Arte y Arquitectura">Arte y Arquitectura</option>
                                                     <option value="Carreras Técnicas">Carreras Técnicas</option>
@@ -174,7 +173,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <input type="hidden" name="method" value="DELETE"> 
-                                        <p style="font-size: 18">¿Está seguro de que desea eliminar ésta carrera?</p>
+                                        <p style="font-size: 18">¿Está seguro de que desea eliminar ésta carrera? Se eliminarán también todos los planes de estudio vinculados.</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -196,7 +195,8 @@
         $(document).ready(function() {
             var table = $('#lista').DataTable({
 
-                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">'
+                "sDom": '<"top"f>        rt      <"bottom"ip>      <"clear">',
+                "order": [[ 1, "asc" ]]
             });
 
             

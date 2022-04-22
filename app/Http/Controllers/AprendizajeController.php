@@ -43,9 +43,10 @@ class AprendizajeController extends Controller
             'Descripcion_aprendizaje'=>$request->input('desc_aprendizaje'),
             'tipo_aprendizaje'=>$request->input('tipo_aprend'),
             'refCompetencia'=>$request->input('refComp'),
+            'refPlan'=>$id_plan,
         ]);
 
-        return back();
+        return back()->withSuccess('Aprendizaje creado con éxito');
     }
 
     /**
@@ -101,7 +102,7 @@ class AprendizajeController extends Controller
             'refCompetencia'=>$request->input('refComp'),
         ]);
 
-        return back();
+        return back()->withSuccess('Aprendizaje actualizado con éxito');
     }
 
     /**
@@ -114,6 +115,6 @@ class AprendizajeController extends Controller
     {
         $query = DB::table('aprendizajes')->where('id', $id_aprend)->delete();
         
-        return back();
+        return back()->withSuccess('Aprendizaje eliminado con éxito');
     }
 }

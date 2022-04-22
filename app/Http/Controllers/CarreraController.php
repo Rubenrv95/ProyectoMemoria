@@ -7,6 +7,7 @@ use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Datatables;
+use App\Http\Controllers\PlanController;
 
 class CarreraController extends Controller
 {
@@ -45,7 +46,7 @@ class CarreraController extends Controller
         ]);
 
 
-        return redirect()->intended('/carreras');
+        return back()->withSuccess('Carrera creada con éxito');
     }
 
     public function createForm()
@@ -111,7 +112,7 @@ class CarreraController extends Controller
         ]);
         
 
-        return redirect('/carreras')->with('success', 'Data actualizada');
+        return back()->withSuccess('Carrera actualizada con éxito');
 
     }
 
@@ -124,9 +125,20 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
+
+
+        $planes = DB::table('planes')->where('Carrera_asociada', $id)->get();
+
+        $controlador = new PlanController;
+
+        foreach ($planes as $plan) {
+            $id_plan = $plan->id;
+            $controlador->destroy($id, $id_plan);    
+        }
+
         $query = DB::table('carreras')->where('id', $id)->delete();
         
-        return redirect('/carreras')->with('success', 'Logrado');
+        return back()->withSuccess('Carrera eliminada con éxito');
     }
 
 

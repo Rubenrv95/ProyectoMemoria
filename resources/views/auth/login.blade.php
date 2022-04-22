@@ -10,14 +10,23 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="js/dashboard.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/dashboard.css') }}" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="{{ asset('/css/dashboard.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 
 </head>
 <body style="background-color: #242424">
@@ -32,15 +41,16 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                                 <div class="p-5">
-                                @if ($message = Session::get('error'))
-                                    <div class="alert alert-danger alert-block">
-                                        <button type="button" class="close" data-dismiss="alert"> X </button>
-                                        <strong> {{ $message }}</strong>
+                                @if(session('error'))
+                                    <div class="alert alert-dismissable alert-danger">
+                                        <strong>    
+                                            {{session('error')}}
+                                        </strong>
                                     </div>
                                 @endif
 
                                 @if (count($errors) > 0)
-                                    <div class="alert alert-danger">
+                                    <div class="alert alert-dismissable alert-danger">
                                         <u1>
                                         @foreach($errors->all() as $error)
                                             <li>{{ $error }} </li>
@@ -55,15 +65,17 @@
                                         
                                         {{ csrf_field() }}
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" name="email" placeholder="Ingrese su correo electrónico" style="width: 650px; margin: auto">
+                                            <input type="email" class="form-control form-control-user" name="email" placeholder="Ingrese su correo electrónico" style="width: 650px; margin: auto" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" placeholder="Contraseña" name="password" style="width: 650px; margin: auto">
+                                            <input type="password" class="form-control form-control-user" placeholder="Contraseña" name="password" style="width: 650px; margin: auto" required> 
                                         </div>
                                         <div class="form-group" style="text-align: center;">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" >
-                                                <label class="custom-control-label" for="customCheck">Recordarme</label>
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Recordarme
+                                            </label>
                                             </div>
                                         </div>
                                         <div style=" text-align: center;">
@@ -87,30 +99,7 @@
         </div>
 
     </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
 </body>
 </html>
 
-
-<!--
-@if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->

@@ -41,7 +41,6 @@ Route::post('crearCarrera', 'CarreraController@create');
     Route::get('/planes', 'PlanController@index');
     
     Route::resource('/usuarios', 'UserController');
-    Route::post('register', 'UserController@create');
 
     Route::get('/carreras/{id}/{plan}/perfil_de_egreso', 'CompetenciaController@index');
     Route::post('/carreras/{id}/{plan}/perfil_de_egreso', 'CompetenciaController@create');
