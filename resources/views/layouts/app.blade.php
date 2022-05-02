@@ -89,7 +89,7 @@
 
                                         <h4>Contraseña Actual</h4>
                                         <div class="form-inline" id="show_hide_password">
-                                            <input type="password" name="current_password" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>
+                                            <input type="password" name="contraseña_actual" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>
                                             <div class="form-group-addon" style="padding-left: 1%">
                                                 <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                             </div>
@@ -97,7 +97,7 @@
 
                                         <h4>Nueva Contraseña</h4>
                                         <div class="form-inline" id="show_hide_password2">
-                                        <input type="password" id="new_password" name="new_password" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>    
+                                        <input type="password" id="new_password" name="contraseña_nueva" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>    
                                             <div class="form-group-addon" style="padding-left: 1%">
                                                 <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                             </div>
@@ -105,7 +105,7 @@
 
                                         <h4>Confirmar Nueva Contraseña</h4>
                                         <div class="form-inline" id="show_hide_password3">
-                                            <input type="password" id="new_confirm_password" name="new_confirm_password" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>              
+                                            <input type="password" id="new_confirm_password" name="confirmar_contraseña" autocomplete="current-password" class="form-control form-control-lg" style="width: 92%; margin-bottom: 10px" required>              
                                             <div class="form-group-addon" style="padding-left: 1%">
                                                 <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                             </div>
@@ -269,14 +269,14 @@
                     </div>
                 @endif
 
-                @if(session('error'))
+                @if ($errors->any())
                     <div class="alert alert-dismissable alert-danger">
                         <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <strong>    
-                            {{session('error')}}
-                        </strong>
+                            @foreach ($errors->all() as $error)
+                                <strong>   {{ $error }} </strong>
+                            @endforeach
                     </div>
                 @endif
 

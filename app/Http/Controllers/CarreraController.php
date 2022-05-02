@@ -74,7 +74,7 @@ class CarreraController extends Controller
     public function show($id) {
 
         $carrera = DB::table('carreras')->where('id', $id)->get(); //carrera
-        $result = DB::table('planes')->where('Carrera_asociada', $id)->get(); //los planes de la carrera
+        $result = DB::table('plans')->where('Carrera_asociada', $id)->get(); //los planes de la carrera
         $data = json_decode($result, true);
         $name = json_decode($carrera, true);
         return view ('planes.planes')->with('data', $data)->with('id', $id)->with('name', $name); //se envian los datos de los planes mas el nombre de la carrera y su id
@@ -127,7 +127,7 @@ class CarreraController extends Controller
     {
 
 
-        $planes = DB::table('planes')->where('Carrera_asociada', $id)->get();
+        $planes = DB::table('plans')->where('Carrera_asociada', $id)->get();
 
         $controlador = new PlanController;
 

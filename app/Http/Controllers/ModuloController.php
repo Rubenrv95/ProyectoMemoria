@@ -2,8 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Plan;
+use App\Models\Carrera;
 use App\Models\Modulo;
+use App\Models\Competencia;
+use App\Models\Aprendizaje;
+use App\Models\Saber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Datatables;
 
 class ModuloController extends Controller
 {

@@ -38,6 +38,8 @@ Route::post('crearCarrera', 'CarreraController@create');
     Route::delete('/carreras/{id}/{plan}', 'PlanController@destroy');
     Route::put('/carreras/{id}/{plan}', 'PlanController@update');
     Route::get('/carreras/{id}/{plan}', 'PlanController@show');
+    Route::post('/carreras/{id}/{plan}/modulo', 'ModuloController@create');
+    Route::post('/carreras/{id}/{plan}/copiar', 'PlanController@copy');
     Route::get('/planes', 'PlanController@index');
     
     Route::resource('/usuarios', 'UserController');

@@ -24,7 +24,7 @@ class CompetenciaController extends Controller
     public function index($id_carrera, $id_plan)
     {
 
-        $plan = DB::table('planes')->where('id', $id_plan)->get();
+        $plan = DB::table('plans')->where('id', $id_plan)->get();
         $carrera = DB::table('carreras')->where('id', $id_carrera)->get(); 
         $plan = json_decode($plan, true);
         $carrera = json_decode($carrera, true);

@@ -38,7 +38,7 @@
                 <table id="lista" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; color: white">
-                                <th>ID <img src="/images/arrows.png" alt="" srcset=""> </th>
+                                <th style="display: none">ID <img src="/images/arrows.png" alt="" srcset=""> </th>
                                 <th>Descripción<img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Tipo de Competencia <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Nivel de Desarrollo <img src="/images/arrows.png" alt="" srcset=""></th>
@@ -50,7 +50,7 @@
                         
                             @foreach ($competencia as $comp)   
                                 <tr>
-                                <td>{{$comp['id']}}</td>
+                                <td style="display: none">{{$comp['id']}}</td>
                                 <td>{{$comp['Descripcion']}}</td>
                                 <td>{{$comp['Tipo']}}</td>
                                 <td>{{$comp['Nivel']}}</td>
@@ -76,7 +76,7 @@
                 <table id="lista2" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; color: white">
-                                <th>ID <img src="/images/arrows.png" alt="" srcset=""> </th>
+                                <th style="display: none">ID <img src="/images/arrows.png" alt="" srcset=""> </th>
                                 <th>Descripción <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Tipo de Aprendizaje<img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Competencia Asociada <img src="/images/arrows.png" alt="" srcset=""></th>
@@ -87,7 +87,7 @@
                         <tbody>
                             @foreach ($aprendizaje as $a)   
                                 <tr>
-                                <td>{{$a['id']}}</td>
+                                <td style="display: none">{{$a['id']}}</td>
                                 <td>{{$a['Descripcion_aprendizaje']}}</td>
                                 <td>{{$a['tipo_aprendizaje']}}</td>
                                 <td>{{$a['Descripcion']}}</td>
@@ -114,7 +114,7 @@
                 <table id="lista3" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; color: white">
-                                <th>ID <img src="/images/arrows.png" alt="" srcset=""> </th>
+                                <th style="display: none">ID <img src="/images/arrows.png" alt="" srcset=""> </th>
                                 <th>Descripción <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Tipo <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Aprendizaje Asociado <img src="/images/arrows.png" alt="" srcset=""></th>
@@ -125,7 +125,7 @@
                         <tbody> 
                             @foreach ($saber as $s) 
                                 <tr>
-                                <td>{{$s['id']}}</td>
+                                <td style="display: none">{{$s['id']}}</td>
                                 <td>{{$s['Descripcion_saber']}}</td>
                                 <td>{{$s['tipo_saber']}}</td>
                                 <td>{{$s['Descripcion_aprendizaje']}}</td>

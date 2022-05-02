@@ -12,6 +12,16 @@ class Plan extends Model
     use HasFactory;
 
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'Nombre',
+    ];
+
+
     function getData() {
         $query = $this->db->get('planes');
         return $query->result();

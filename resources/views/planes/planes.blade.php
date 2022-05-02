@@ -33,7 +33,7 @@
         <table id="lista" class="table table-striped table-bordered" width="100%">
             <thead>
                 <tr style="font-weight: bold; color: white">
-                    <th style="width: 50px">ID <img src="/images/arrows.png" alt="" srcset=""></th>
+                    <th style="width: 50px; display: none">ID <img src="/images/arrows.png" alt="" srcset=""></th>
                     <th style="width: 250px">Plan <img src="/images/arrows.png" alt="" srcset=""> </th>
                     <th style="width: 250px">Fecha de actualización <img src="/images/arrows.png" alt="" srcset=""> </th>
                     <th style="width: 150px"></th>
@@ -45,12 +45,13 @@
             
             @foreach($data as $item)
                 <tr>
-                    <td> {{ $item['id'] }}</td>
+                    <td style="display: none"> {{ $item['id'] }}</td>
                     <td > {{ $item['Nombre'] }}</td>
                     <td >{{ $item['updated_at'] }}</td>
                     <td>
                         <a href="/carreras/{{$id}}/{{ $item['id'] }}"><button type="button" id="mod" data-bs-toggle="modal" data-bs-target="#modal_modificar_carrera" class="edit"></button></a>
                         <button type="button" id="del" data-bs-toggle="modal" data-bs-target="#modal_eliminar_plan" class="delete">
+                        <button type="button" id="copy" data-bs-toggle="modal" data-bs-target="#modal_copiar_plan" class="copy" style="margin-left: 2%">
                     </td>
                 </tr>    
             @endforeach
@@ -131,6 +132,40 @@
             </div>
         </div>
 
+        <!--Modal guardar como nuevo plan de estudio -->
+        <div class="container">
+                <div class="row">
+                    <div class ="col-md-12">
+                        <div tabIndex="-1" class="modal fade" id="modal_copiar_plan" aria-hidden="true"> 
+                            <div class="modal-dialog modal-md">
+                                <form action="" method="POST" class="form-group"  id = "copyForm">
+                                @csrf
+                                    <div class="modal-content" style="width: 600px">
+
+                                        <div class="modal-header">
+                                            <h1 class="justify-content-center" style="margin: auto"> Copiar Plan de Estudio</h1>
+                                        </div>
+                                        <div class="modal-body">
+
+                                                <div class="form-group" style="margin: auto; margin-bottom: 20px">
+                                                    <label style="font-size: 20">Nombre del nuevo plan</label>
+                                                    <input class="form-control form-control-lg" name="nombre_plan_nuevo" style="width:100%"  placeholder="Ingrese el nombre del nuevo plan" value="" required/>  
+                                                </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                                    <button class="btn btn-success" type="submit">Guardar</button>
+                                                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
+                                        </div> 
+                                    
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
     
     </div>
 
@@ -161,6 +196,23 @@
                 $('#modal_eliminar_plan').modal('show');
 
             }  );
+
+            //copiar
+            table.on('click', '.copy', function() {
+
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+
+                var data = table.row($tr).data();
+                console.log(data);
+
+                $('#copyForm').attr('action', '/carreras/{{$id}}/'+data[0] +'/copiar');
+                $('#modal_copiar_plan').modal('show');
+
+            });
             
         
             

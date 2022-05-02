@@ -40,12 +40,12 @@ class ChangePasswordController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-            'new_confirm_password' => ['same:new_password'],
+            'contraseña_actual' => ['required', new MatchOldPassword],
+            'contraseña_nueva' => ['required'],
+            'confirmar_contraseña' => ['same:contraseña_nueva'],
         ]);
    
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->contraseña_nueva)]);
    
         return back()->withSuccess('Contraseña cambiada con éxito');
     }

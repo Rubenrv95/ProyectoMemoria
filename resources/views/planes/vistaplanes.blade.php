@@ -19,7 +19,7 @@
                 <table id="lista" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; color: white">
-                                <th>ID <img src="/images/arrows.png" alt="" srcset=""> </th>
+                                <th style="display: none">ID <img src="/images/arrows.png" alt="" srcset=""> </th>
                                 <th>Nombre del Plan<img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Carrera asociada <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th style="width: 150px"></th>
@@ -30,7 +30,7 @@
                         
                             @foreach ($data as $p)
                                 <tr>
-                                <td>{{$p['id']}}</td>
+                                <td style="display: none">{{$p['id']}}</td>
                                 <td>{{$p['Nombre']}}</td>
                                 <td>{{$p['Ncarrera']}}</td>
                                 <td>

@@ -187,6 +187,27 @@ header {
     cursor: -webkit-grab;
     cursor: grab;
 }
+
+#copy {
+    background-image: url('/images/copy_icon.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;   
+}
+#copy:hover {
+    background-color: rgb(167, 167, 167);
+    border-radius: 10px;
+}
+  
+#copy:active {
+    background-color: rgb(112, 112, 112);
+    border-radius: 10px;
+}
   
 .tasks {
     min-height: 450px;

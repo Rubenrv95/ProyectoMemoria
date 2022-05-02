@@ -25,7 +25,7 @@
                 <table id="lista" class="table table-striped table-bordered" width="100%">
                         <thead>
                                 <tr style="font-weight: bold; color: white">
-                                <th>ID <img src="/images/arrows.png" alt="" srcset=""> </th>
+                                <th style="display: none">ID <img src="/images/arrows.png" alt="" srcset=""> </th>
                                 <th>Carrera <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th>Área profesional <img src="/images/arrows.png" alt="" srcset=""></th>
                                 <th style="width: 150px"></th>
@@ -36,7 +36,7 @@
                         
                                 @foreach($carrera as $item)
                                 <tr>
-                                <td>{{$item['id']}}</td>
+                                <td style="display: none">{{$item['id']}}</td>
                                 <td> {{$item['nombre']}}</td>
                                 <td>{{$item['area']}}</td>
                                 <td>

@@ -27,7 +27,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $query = DB::table('planes')->orderBy('Nombre')->join('carreras', 'planes.Carrera_asociada', '=', 'carreras.id')->select('planes.Nombre', 'planes.id', 'carreras.nombre as Ncarrera', 'carreras.id as idCarrera')->get();
+        $query = DB::table('plans')->orderBy('Nombre')->join('carreras', 'plans.Carrera_asociada', '=', 'carreras.id')->select('plans.Nombre', 'plans.id', 'carreras.nombre as Ncarrera', 'carreras.id as idCarrera')->get();
         $query = json_decode($query, true);
         return view ('planes.vistaplanes')->with('data', $query);
     }
@@ -44,7 +44,7 @@ class PlanController extends Controller
         ]);
 
 
-        $query = DB::table('planes')->insert([
+        $query = DB::table('plans')->insert([
             'Nombre'=>$request->input('nombre_plan'),
             'Carrera_asociada'=>$request->input('nombre_carrera'),
         ]);
@@ -65,6 +65,34 @@ class PlanController extends Controller
         //
     }
 
+    
+    /**
+     * copy and create resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function copy(Request $request, $carrera, $plan)
+    {
+        $plan = Plan::find($plan);
+
+        //$plan= json_encode($plan, true);
+
+        $newPlan = $plan->replicate()->fill(
+            [
+                'Nombre' => $request->input('nombre_plan_nuevo'),
+            ]
+        );
+        //$newTask->project_id = 16; // the new project_id
+        $newPlan->save();
+
+        
+
+
+        return back();
+    }
+
+
     /**
      * Display the specified resource.
      *
@@ -74,12 +102,20 @@ class PlanController extends Controller
     public function show($id, $plan)
     {
 
-        $query = DB::table('planes')->where('id', $plan)->get();
+        $query = DB::table('plans')->where('id', $plan)->get();
         $carrera = DB::table('carreras')->where('id', $id)->get(); 
         $modulo =  DB::table('modulos')->where('refPlan', $plan)->get(); 
         $query = json_decode($query, true);
         $carrera = json_decode($carrera, true);
-        return view('editar')->with('plan', $query)->with('carrera', $carrera);
+
+        $competencia = DB::table('competencias')->where('refPlan', $plan)->get();
+        $aprendizaje = DB::table('aprendizajes')->leftJoin('competencias', 'aprendizajes.refCompetencia', '=', 'competencias.id')->where('competencias.refPlan', '=', $plan)->select('aprendizajes.*', 'competencias.Descripcion')->get();
+        $saber = DB::table('sabers')->leftJoin('aprendizajes', 'sabers.refAprendizaje', '=', 'aprendizajes.id')->leftJoin('competencias', 'aprendizajes.refCompetencia', '=', 'competencias.id')->where('competencias.refPlan', '=', $plan)->select('sabers.*', 'aprendizajes.Descripcion_aprendizaje', 'competencias.refPlan')->get();
+        $competencia = json_decode($competencia, true);
+        $aprendizaje = json_decode($aprendizaje, true);
+        $saber = json_decode($saber, true);
+
+        return view('editar')->with('plan', $query)->with('carrera', $carrera)->with('saber', $saber);
     }
 
     /**
@@ -109,7 +145,7 @@ class PlanController extends Controller
         ]);
 
 
-        $query = DB::table('planes')->where('id', $plan)->update([
+        $query = DB::table('plans')->where('id', $plan)->update([
             'Nombre'=>$request->input('nombre_plan'),
         ]);
         
@@ -131,7 +167,7 @@ class PlanController extends Controller
         $aprendizajes = DB::table('aprendizajes')->where('refPlan', $plan)->delete();
         $saberes = DB::table('sabers')->where('refPlan', $plan)->delete();
 
-        $query = DB::table('planes')->where('id', $plan)->delete();
+        $query = DB::table('plans')->where('id', $plan)->delete();
 
         return back()->withSuccess('Plan de estudio eliminado con éxito');
     }

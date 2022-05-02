@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $planes = DB::table('planes')->get();
+        $planes = DB::table('plans')->get();
         $carreras = DB::table('carreras')->get();
         $usuarios = DB::table('users')->where('nombre', '<>', 'Administrador')->get();
 
